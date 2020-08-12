@@ -6,7 +6,7 @@
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title "><strong>Section Hero</strong>(Please Don't Add More Than One Item)</h3>
+                                <h4 class="card-title "><strong>Section Hero</strong>(Please don't add more than one item)</h4>
                                 <div class="card-tools">
                                     <router-link to="/add-hero"><button class="btn btn-primary ">Add Hero</button></router-link>
                                 </div>

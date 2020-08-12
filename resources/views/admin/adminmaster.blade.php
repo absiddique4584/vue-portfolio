@@ -82,10 +82,10 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/post-list" class="nav-link">
+                            <router-link to="/facts" class="nav-link">
                                 <i class="nav-icon far fa-address-card"></i>
                                 <p class="dashboard">
-                                    About
+                                    Facts
                                 </p>
                             </router-link>
                         </li>

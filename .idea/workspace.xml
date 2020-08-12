@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03f53217-a86f-4c25-a4fc-b1b433c66b8b" name="Default Changelist" comment="" />
+    <list default="true" id="03f53217-a86f-4c25-a4fc-b1b433c66b8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Fact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_131149_create_facts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/FactsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/List.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/View.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/Add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/View.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/View.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/website/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +48,9 @@
         <option value="Vue Single File Component" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,12 +158,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1flApnRdanOsvUbE9lQxESCdG1m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -162,17 +199,31 @@
       <workItem from="1597140044753" duration="1267000" />
       <workItem from="1597143905355" duration="659000" />
       <workItem from="1597145407056" duration="1888000" />
+      <workItem from="1597149561226" duration="645000" />
+      <workItem from="1597152220598" duration="4670000" />
+      <workItem from="1597209991886" duration="560000" />
+      <workItem from="1597211590052" duration="6956000" />
+      <workItem from="1597244905528" duration="1251000" />
+      <workItem from="1597248282251" duration="1756000" />
+      <workItem from="1597258170626" duration="3861000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="370" y="129" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596803565533">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="370" y="129" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.760@0.0.1280.760" timestamp="1596803565533" />
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597262373574">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.760@0.0.1280.760" timestamp="1597262373574" />
     <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1596861661703">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -189,9 +240,9 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1596861661703" />
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1597059269456">
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1597245289135">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1597059269456" />
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1597245289135" />
   </component>
 </project>

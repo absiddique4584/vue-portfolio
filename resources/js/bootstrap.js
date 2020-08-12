@@ -8,6 +8,7 @@ try {
     require('bootstrap');
     require('admin-lte');
     require('@fortawesome/fontawesome-free');
+    require('bootstrap-toggle');
 } catch (e) {}
 
 

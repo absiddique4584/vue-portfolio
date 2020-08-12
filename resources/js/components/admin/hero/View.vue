@@ -8,7 +8,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Category</h3>
+                                <h3 class="card-title">Hero View Page <router-link to="/hero"><button class="btn btn-success">Back</button></router-link></h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -16,8 +16,8 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Add Name</label>
-                                        <input readonly type="text" v-model="form.name" name="name" class="form-control" id="name" placeholder="Add New Name"
+                                        <label for="name">Name</label>
+                                        <input readonly type="text" v-model="form.name" name="name" class="form-control" id="name"
                                                :class="{ 'is-invalid': form.errors.has('name') }">
                                         <has-error :form="form" field="name"></has-error>
                                     </div>
@@ -25,38 +25,38 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name_a">Add Name A</label>
-                                        <input readonly type="text" v-model="form.name_a" name="name_a" class="form-control" id="name_a" placeholder="Add New Name A"
+                                        <label for="name_a">Name A</label>
+                                        <input readonly type="text" v-model="form.name_a" name="name_a" class="form-control" id="name_a"
                                                :class="{ 'is-invalid': form.errors.has('name_a') }">
                                         <has-error :form="form" field="name_a"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name_b">Add Name B</label>
-                                        <input readonly type="text" v-model="form.name_b" name="name_b" class="form-control" id="name_b" placeholder="Add New Name B"
+                                        <label for="name_b">Name B</label>
+                                        <input readonly type="text" v-model="form.name_b" name="name_b" class="form-control" id="name_b"
                                                :class="{ 'is-invalid': form.errors.has('name_b') }">
                                         <has-error :form="form" field="name_b"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name_c">Add Name C</label>
-                                        <input readonly type="text" v-model="form.name_c" name="name_c" class="form-control" id="name_c" placeholder="Add New Name C"
+                                        <label for="name_c"> Name C</label>
+                                        <input readonly type="text" v-model="form.name_c" name="name_c" class="form-control" id="name_c"
                                                :class="{ 'is-invalid': form.errors.has('name_c') }">
                                         <has-error :form="form" field="name_c"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name_d">Add Name D</label>
-                                        <input readonly type="text" v-model="form.name_d" name="name_d" class="form-control" id="name_d" placeholder="Add New Name D">
+                                        <label for="name_d">Name D</label>
+                                        <input readonly type="text" v-model="form.name_d" name="name_d" class="form-control" id="name_d" >
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="twitter">twitter</label>
-                                        <input readonly type="text" v-model="form.twitter" name="twitter" class="form-control" id="twitter" placeholder="twitter">
+                                        <input readonly type="text" v-model="form.twitter" name="twitter" class="form-control" id="twitter" >
                                     </div>
                                 </div>
                                 <div class="card-body">

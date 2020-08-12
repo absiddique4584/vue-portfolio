@@ -8,7 +8,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Category</h3>
+                                <h3 class="card-title">Update Hero <router-link to="/hero"><button class="btn btn-success">Back</button></router-link></h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->

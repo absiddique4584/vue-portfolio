@@ -12,6 +12,17 @@ import Factview from './components/admin/facts/View'
 import FactEdit from './components/admin/facts/Edit'
 import Addfact from './components/admin/facts/Add'
 
+//skills
+import SkillList from './components/admin/skills/List'
+import SkillAdd from './components/admin/skills/Add'
+import Skill2Add from './components/admin/skills/Add2'
+import editSkill from './components/admin/skills/Edit'
+import editSkill2 from './components/admin/skills/Edit2'
+
+//services
+import AdminServices from './components/admin/service/List'
+import AdminAddServices from './components/admin/service/Add'
+import UpdateServices from './components/admin/service/Edit'
 
 
 export const routes = [
@@ -58,7 +69,41 @@ export const routes = [
         component: Addfact
     },
 
+//skills
+    {
+        path: '/skills',
+        component: SkillList
+    },
+    {
+        path: '/add-skill',
+        component: SkillAdd
+    },
+    {
+        path: '/add-skill2',
+        component: Skill2Add
+    },
+    {
+        path: '/edit-skill/:skillID',
+        component: editSkill
+    },
+    {
+        path: '/edit-skill2/:skill2ID',
+        component: editSkill2
+    },
 
+    //services
+    {
+        path: '/Services',
+        component: AdminServices
+    },
+    {
+        path: '/add-Service',
+        component: AdminAddServices
+    },
+    {
+        path: '/edit-service/:serviceID',
+        component: UpdateServices
+    },
 ]
 
 

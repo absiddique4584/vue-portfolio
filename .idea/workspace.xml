@@ -2,30 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f53217-a86f-4c25-a4fc-b1b433c66b8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_131149_create_facts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/FactsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/List.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/View.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Skill.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Skill2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_14_053555_create_skills_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_14_061609_create_skill2s_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_15_094028_create_services_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/ServiceTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/Skill2TableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/SkillsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/service/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/service/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/service/List.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/skills/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/skills/Add2.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/skills/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/skills/Edit2.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/skills/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/Add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/facts/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/facts/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/facts/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/facts/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/hero/View.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/hero/View.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -205,7 +210,15 @@
       <workItem from="1597211590052" duration="6956000" />
       <workItem from="1597244905528" duration="1251000" />
       <workItem from="1597248282251" duration="1756000" />
-      <workItem from="1597258170626" duration="3861000" />
+      <workItem from="1597258170626" duration="4255000" />
+      <workItem from="1597294720885" duration="70000" />
+      <workItem from="1597381841908" duration="5835000" />
+      <workItem from="1597398016743" duration="8607000" />
+      <workItem from="1597416235845" duration="30000" />
+      <workItem from="1597430018867" duration="5749000" />
+      <workItem from="1597469138967" duration="3842000" />
+      <workItem from="1597483326869" duration="2685000" />
+      <workItem from="1597487786153" duration="7183000" />
     </task>
     <servers />
   </component>
@@ -220,10 +233,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="370" y="129" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.760@0.0.1280.760" timestamp="1596803565533" />
-    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597262373574">
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597498661153">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.760@0.0.1280.760" timestamp="1597262373574" />
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.760@0.0.1280.760" timestamp="1597498661153" />
     <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1596861661703">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -240,9 +253,9 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1596861661703" />
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1597245289135">
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1597435005773">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1597245289135" />
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1597435005773" />
   </component>
 </project>

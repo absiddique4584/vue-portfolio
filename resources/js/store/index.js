@@ -1,7 +1,10 @@
 export default {
     state:{
         heroes:[],
-        facts:[]
+        facts:[],
+        skills:[],
+        skills2:[],
+        services:[],
     },
     getters:{
         allHeroes(state){
@@ -10,6 +13,15 @@ export default {
         allFacts(state){
             return state.facts
         },
+        AllSkills(state){
+            return state.skills
+        },
+        AllSkills2(state){
+            return state.skills2
+        },
+        getServices(state){
+            return state.services
+        }
 
     },
     actions:{
@@ -24,7 +36,25 @@ export default {
                 .then((response)=>{
                     context.commit('getFacts',response.data.facts)
                 })
-        }
+        },
+        getallSkills(context){
+            axios.get('/all-skills')
+                .then((response)=>{
+                    context.commit('getSkills',response.data.skills)
+                })
+        },
+        getallSkills2(context){
+            axios.get('/all-skills2')
+                .then((response)=>{
+                    context.commit('getSkills2',response.data.skills2)
+                })
+        },
+        allService(context){
+            axios.get('/all-services')
+                .then((response)=>{
+                    context.commit('serviceList',response.data.services)
+                })
+        },
 
     },
     mutations:{
@@ -33,7 +63,16 @@ export default {
         },
         getFacts(state,data){
             return state.facts = data
-        }
+        },
+        getSkills(state,data){
+            return state.skills = data
+        },
+        getSkills2(state,data){
+            return state.skills2 = data
+        },
+        serviceList(state,data){
+            return state.services = data
+        },
 
     }
 

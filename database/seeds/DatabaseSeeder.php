@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
              UsersTableSeeder::class,
              HeroTableSeeder::class,
              FactsTableSeeder::class,
+             SkillsTableSeeder::class,
+             Skill2TableSeeder::class,
+             ServiceTableSeeder::class,
          ]);
     }
 }

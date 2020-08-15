@@ -16,7 +16,7 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="icon">Icon</label>
+                                        <label for="icon">Icon Choose From Here[simple-smile,document-folder,live-support,users-alt-5]</label>
                                         <input  type="text" v-model="form.icon" name="icon" class="form-control" id="icon"
                                                :class="{ 'is-invalid': form.errors.has('icon') }">
                                         <has-error :form="form" field="icon"></has-error>

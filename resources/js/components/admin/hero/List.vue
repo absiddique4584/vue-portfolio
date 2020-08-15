@@ -96,4 +96,5 @@ export default {
 a{
     cursor: pointer;
 }
+
 </style>

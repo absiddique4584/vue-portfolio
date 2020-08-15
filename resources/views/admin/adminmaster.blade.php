@@ -91,10 +91,20 @@
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/post-list" class="nav-link">
+                            <router-link to="/skills" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p class="dashboard">
-                                    Resume
+                                    Skills
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </router-link>
+                        </li>
+
+                        <li class="nav-item">
+                            <router-link to="/Services" class="nav-link">
+                                <i class="fab fa-servicestack"></i>
+                                <p class="dashboard">
+                                    Services
                                     <span class="right badge badge-danger">New</span>
                                 </p>
                             </router-link>

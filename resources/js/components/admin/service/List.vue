@@ -6,9 +6,9 @@
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title "><strong>Section Facts (active items should be 4 or 8)</strong></h3>
+                                <h4 class="card-title "><strong>Section Service</strong></h4>
                                 <div class="card-tools">
-                                    <router-link to="/add-fact"><button class="btn btn-primary ">Add Fact</button></router-link>
+                                    <router-link to="/add-service"><button class="btn btn-primary ">Add Service</button></router-link>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -18,23 +18,22 @@
                                         <tr>
                                             <th>SI NO</th>
                                             <th>Icon</th>
-                                            <th>Number</th>
                                             <th>Name</th>
+                                            <th>Description</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(fact,index) in getFact" :key="fact.id">
+                                        <tr v-for="(service,index) in getAllService" :key="service.id">
                                             <td>{{ index+1 }}</td>
-                                            <td>{{ fact.icon }}</td>
-                                            <td>{{ fact.number }}</td>
-                                            <td>{{ fact.name }}</td>
-                                            <td><button class="btn btn-success" >{{ fact.status }}</button></td>
+                                            <td>{{ service.icon }}</td>
+                                            <td>{{ service.name }}</td>
+                                            <td>{{ service.desc|sortlength(20,'....') }}</td>
+                                            <td><button class="btn btn-success">{{ service.status }}</button></td>
                                             <td>
-                                                <router-link :to="`/fact-view/${fact.id}`" ><i class="fas fa-eye"></i></router-link>
-                                                <router-link :to="`/fact-edit/${fact.id}`"><i class="fas fa-pencil-alt"></i></router-link>
-                                                <a @click.prevent="deleteFact(fact.id)"><i class="fas fa-trash"></i></a>
+                                                <router-link :to="`/edit-service/${service.id}`"><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deleteService(service.id)"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
 
@@ -55,24 +54,33 @@
 export default {
 name: "List",
     mounted() {
-       this.$store.dispatch('getallFacts')
+        this.$store.dispatch('allService')
     },
     computed:{
-        getFact(){
-            return this.$store.getters.allFacts
+        getAllService(){
+            return this.$store.getters.getServices
         }
     },
+
     methods:{
-        deleteFact(id){
-            axios.get('/delete-fact/'+id)
-            .then(()=>{
-                this.$store.dispatch('getallFacts')
-                toast.fire({
-                    icon: 'success',
-                    title: 'Yah! A Fact has been successfully Deleted'
-                })
-            })
-        },
+        deleteService(id){
+           alert(
+               'Are you sure? Want To Delet It!',
+               axios.get('/delete-service/'+id)
+                   .then(()=>{
+                       this.$store.dispatch("allService")
+                       toast.fire({
+                           icon: 'success',
+                           title: 'Yah! A Service has been successfully Deleted'
+                       })
+                   }).catch(()=>{
+                   toast.fire({
+                       icon: 'success',
+                       title: 'Ooh!something Wrong !'
+                   })
+               })
+           )
+        }
 
     }
 }

@@ -29,4 +29,27 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::post('/add-fact','FactController@add_fact');
     Route::get('/edit-fact/{id}','FactController@edit_fact');
     Route::post('/update-fact/{id}','FactController@update_fact');
+
+
+    Route::get('/all-skills','SkillController@all_skills');
+    Route::get('/all-skills2','SkillController@all_skills2');
+    Route::get('/delete-skill/{id}','SkillController@delete_skill');
+    Route::get('/delete-skill2/{id}','SkillController@delete_skill2');
+    Route::post('/add-skill','SkillController@add_skill');
+    Route::post('/add-skill2','SkillController@add_skill2');
+    Route::get('/editSkill/{id}','SkillController@edit_skill');
+    Route::get('/editSkill2/{id}','SkillController@edit_skill2');
+    Route::post('/update-skill/{id}','SkillController@update_skill');
+    Route::post('/update-skill2/{id}','SkillController@update_skill2');
+
+
+    Route::get('/all-services','ServiceController@all_service');
+    Route::get('/delete-service/{id}','ServiceController@delete_service');
+    Route::post('/add-service','ServiceController@add_service');
+    Route::get('/edit-service/{id}','ServiceController@edit_service');
+    Route::post('/update-service/{id}','ServiceController@update_service');
+
+
+
+
 });

@@ -95,7 +95,6 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p class="dashboard">
                                     Skills
-                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </router-link>
                         </li>
@@ -105,7 +104,15 @@
                                 <i class="fab fa-servicestack"></i>
                                 <p class="dashboard">
                                     Services
-                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </router-link>
+                        </li>
+
+                        <li class="nav-item">
+                            <router-link to="/testimonials" class="nav-link">
+                                <i class="far fa-comment"></i>
+                                <p class="dashboard">
+                                    Testimonial
                                 </p>
                             </router-link>
                         </li>
@@ -120,6 +127,7 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                                    <span class="right badge badge-danger"><i class="fas fa-sign-out-alt"></i></span>
                             </router-link>
                         </li>
                     </ul>

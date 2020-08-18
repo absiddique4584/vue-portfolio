@@ -5,6 +5,7 @@ export default {
         skills:[],
         skills2:[],
         services:[],
+        testimonials:[]
     },
     getters:{
         allHeroes(state){
@@ -21,6 +22,9 @@ export default {
         },
         getServices(state){
             return state.services
+        },
+        allTestimoni(state){
+            return state.testimonials
         }
 
     },
@@ -55,6 +59,12 @@ export default {
                     context.commit('serviceList',response.data.services)
                 })
         },
+        getAllTestimonials(context){
+            axios.get('/all-testimonial')
+                .then((response)=>{
+                    context.commit('allTestimonial',response.data.testimonials)
+                })
+        }
 
     },
     mutations:{
@@ -72,6 +82,9 @@ export default {
         },
         serviceList(state,data){
             return state.services = data
+        },
+        allTestimonial(state,data){
+            return state.testimonials = data
         },
 
     }

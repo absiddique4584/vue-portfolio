@@ -50,6 +50,11 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::post('/update-service/{id}','ServiceController@update_service');
 
 
+    Route::get('/all-testimonial','TestimonialController@all_testimonial');
+    Route::get('/delete-testimonial/{id}','TestimonialController@delete_testimonial');
+    Route::post('/testimonial/add','TestimonialController@add_testimonial');
+
+
 
 
 });

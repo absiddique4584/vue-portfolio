@@ -24,6 +24,10 @@ import AdminServices from './components/admin/service/List'
 import AdminAddServices from './components/admin/service/Add'
 import UpdateServices from './components/admin/service/Edit'
 
+//testimonials
+import testimonialList from './components/admin/testimonial/List'
+import testimonialAdd from './components/admin/testimonial/Add'
+
 
 export const routes = [
     {
@@ -104,6 +108,19 @@ export const routes = [
         path: '/edit-service/:serviceID',
         component: UpdateServices
     },
+
+    //testimonials
+
+    {
+        path: '/testimonials',
+        component: testimonialList
+    },
+    {
+        path: '/add-testimonial',
+        component: testimonialAdd
+    },
+
+
 ]
 
 

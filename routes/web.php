@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/all-testimonial','TestimonialController@all_testimonial');
     Route::get('/delete-testimonial/{id}','TestimonialController@delete_testimonial');
     Route::post('/testimonial/add','TestimonialController@add_testimonial');
+    Route::get('/edit-testimonial/{id}','TestimonialController@edit_testimonial');
+    Route::post('/update-testimonial/{id}','TestimonialController@update_testimonial');
 
 
 

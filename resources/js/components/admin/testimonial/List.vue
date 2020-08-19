@@ -36,7 +36,7 @@
                                             <td>{{testimonial.desc|sortlength(20,'....')}}</td>
                                             <td><button class="btn btn-success">{{testimonial.status}}</button></td>
                                             <td>
-                                                <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                                <router-link :to="`/edit-testimonial/${testimonial.id}`"><i class="fas fa-pencil-alt"></i></router-link>
                                                 <a @click.prevent="deleteTestimonial(testimonial.id)"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

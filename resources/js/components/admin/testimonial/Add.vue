@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group" >
+                                <div class="form-group" style="margin-left: 20px;">
                                     <input @change = "changePhoto($event)" name="photo" type="file" :class="{ 'is-invalid': form.errors.has('photo') }">
                                     <img :src="form.photo" alt="" width="80" height="80">
                                     <has-error :form="form" field="photo"></has-error>

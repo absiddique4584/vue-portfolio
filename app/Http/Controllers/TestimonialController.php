@@ -63,4 +63,65 @@ class TestimonialController extends Controller
 
     }
 
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit_testimonial($id){
+        $testimonial = Testimonial::find($id);
+        return response()->json([
+            'testimonial'=>$testimonial
+        ]);
+    }
+
+
+
+
+
+    /**
+     * @param Request $request
+     * @param         $id
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function update_testimonial(Request $request,$id){
+        $testimonial = Testimonial::find($id);
+        $this->validate($request,[
+            'title'=>'required',
+            'name'=>'required',
+            'desc'=>'required',
+            'status'=>'required',
+            'photo'=>'required',
+        ]);
+
+
+        if($request->photo!=$testimonial->photo){
+            $strpos = strpos($request->photo,';');
+            $sub = substr($request->photo,0,$strpos);
+            $ex = explode('/',$sub)[1];
+            $testName = time().".".$ex;
+            $img = Image::make($request->photo)->resize(120, 120);
+            $upload_path = public_path()."/uploads/testimonial/";
+            $image = $upload_path. $testimonial->photo;
+            $img->save($upload_path.$testName);
+
+            if(file_exists($image)){
+                @unlink($image);
+            }
+        }else{
+            $testName = $testimonial->photo;
+        }
+
+        $testimonial->title = $request->title;
+        $testimonial->name = $request->name;
+        $testimonial->desc = $request->desc;
+        $testimonial->status = $request->status;
+        $testimonial->photo = $testName;
+        $testimonial->save();
+    }
+
+
+
+
 }

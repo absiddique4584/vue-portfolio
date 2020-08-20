@@ -5,7 +5,8 @@ export default {
         skills:[],
         skills2:[],
         services:[],
-        testimonials:[]
+        testimonials:[],
+        abouts:[]
     },
     getters:{
         allHeroes(state){
@@ -25,6 +26,9 @@ export default {
         },
         allTestimoni(state){
             return state.testimonials
+        },
+        allAbouts(state){
+            return state.abouts
         }
 
     },
@@ -64,6 +68,12 @@ export default {
                 .then((response)=>{
                     context.commit('allTestimonial',response.data.testimonials)
                 })
+        },
+        getallAbout(context){
+            axios.get('/all-about')
+                .then((response)=>{
+                    context.commit('aboutList',response.data.abouts)
+                })
         }
 
     },
@@ -85,6 +95,9 @@ export default {
         },
         allTestimonial(state,data){
             return state.testimonials = data
+        },
+        aboutList(state,data){
+            return state.abouts = data
         },
 
     }

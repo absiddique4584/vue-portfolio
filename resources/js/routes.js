@@ -6,6 +6,12 @@ import AdminHero from './components/admin/hero/List'
 import AddHero from './components/admin/hero/Add'
 import EditHero from './components/admin/hero/Edit'
 import ViewHero from './components/admin/hero/View'
+//About
+import AboutList from './components/admin/about/List'
+import AboutAdd from './components/admin/about/Add'
+import aboutShow from './components/admin/about/Show'
+import aboutEdit from './components/admin/about/Edit'
+
 //Facts Section
 import AdminFacts from './components/admin/facts/List'
 import Factview from './components/admin/facts/View'
@@ -54,6 +60,26 @@ export const routes = [
         path: '/view-hero/:viewID',
         component: ViewHero
     },
+
+    //Abouts
+    {
+      path: '/abouts',
+      component: AboutList
+    },
+    {
+      path: '/add-about',
+      component: AboutAdd
+    },
+    {
+      path: '/show-about/:showID',
+      component: aboutShow
+    },
+    {
+      path: '/edit-about/:aboutID',
+      component: aboutEdit
+    },
+
+
 
     //Facts Section
     {

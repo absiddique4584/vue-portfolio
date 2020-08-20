@@ -76,40 +76,38 @@
 
                 <div class="section-title">
                     <h2>About</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>{{$abouts->h_desc}}</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="{{asset('assets/website/img/profile-img.jpg')}}" class="img-fluid" alt="">
+                        <img src="{{ asset('uploads/about/'.$abouts->image) }}" class="img-fluid" alt="" >
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content">
-                        <h3>UI/UX Designer &amp; Web Developer.</h3>
+                        <h3>{{$abouts->title}}</h3>
                         <p class="font-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                            {{$abouts->m_desc}}
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 1 May 1995</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> www.example.com</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +123 456 7890</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>City:</strong> City : New York, USA</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong>{{$abouts->birth}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Website:</strong>{{$abouts->site}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong>{{$abouts->phone}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>City:</strong> {{$abouts->city}}</li>
                                 </ul>
                             </div>
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 30</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Master</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>PhEmailone:</strong> email@example.com</li>
-                                    <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Age:</strong>{{$abouts->age}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> {{$abouts->degree}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> {{$abouts->email}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Country:</strong> {{$abouts->country}}</li>
                                 </ul>
                             </div>
                         </div>
                         <p>
-                            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+                            {{$abouts->l_desc}}
                         </p>
                     </div>
                 </div>
@@ -468,19 +466,19 @@
                             <div class="address">
                                 <i class="icofont-google-map"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p>{{$abouts->city}},{{$abouts->country}}</p>
                             </div>
 
                             <div class="email">
                                 <i class="icofont-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p>{{$abouts->email}}</p>
                             </div>
 
                             <div class="phone">
                                 <i class="icofont-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p>{{$abouts->phone}}</p>
                             </div>
 
                         </div>

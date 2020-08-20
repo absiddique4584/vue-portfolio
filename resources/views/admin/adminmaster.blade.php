@@ -82,8 +82,16 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
+                            <router-link to="/abouts" class="nav-link">
+                                <i class="nav-icon fas fa-eject"></i>
+                                <p class="dashboard">
+                                    About
+                                </p>
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
                             <router-link to="/facts" class="nav-link">
-                                <i class="nav-icon far fa-address-card"></i>
+                                <i class="nav-icon fas fa-fan"></i>
                                 <p class="dashboard">
                                     Facts
                                 </p>

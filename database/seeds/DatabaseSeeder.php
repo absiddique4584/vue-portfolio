@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
              Skill2TableSeeder::class,
              ServiceTableSeeder::class,
              TestimonialTableSeeder::class,
+             AboutTableSeeder::class,
          ]);
     }
 }

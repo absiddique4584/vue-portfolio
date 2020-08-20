@@ -23,6 +23,14 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/view-hero/{id}','HeroController@view_Hero');
 
 
+    Route::get('/all-about','AboutController@all_about');
+    Route::post('/about/add','AboutController@add_about');
+    Route::get('/show-about/{id}','AboutController@show_about');
+    Route::get('/delete-about/{id}','AboutController@delete_about');
+    Route::get('/edit-about/{id}','AboutController@edit_about');
+    Route::post('/update-about/{id}','AboutController@update_about');
+
+
     Route::get('/all-facts','FactController@all_fact');
     Route::get('/delete-fact/{id}','FactController@delete_fact');
     Route::get('/view-fact/{id}','FactController@view_fact');

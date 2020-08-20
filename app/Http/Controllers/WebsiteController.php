@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Fact;
 use App\Models\Hero;
 use App\Models\Service;
@@ -20,6 +21,8 @@ class WebsiteController extends Controller
         $services = Service::where('status','active')->get();
         $testimonials = Testimonial::where('status','active')->get();
         $socials = Hero::select('twitter','facebook','instagram','skype','linkedin')->get();
-        return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials','socials'));
+        $abouts = About::first();
+        return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials',
+            'socials','abouts'));
     }
 }

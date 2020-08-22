@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f53217-a86f-4c25-a4fc-b1b433c66b8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AboutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/About.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_19_072021_create_abouts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/AboutTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/about/me.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/testimonial/1597843569.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/about/Add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/about/Edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/about/List.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/about/Show.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EducationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ExperienceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Education.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Experience.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_093223_create_education_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_100154_create_experiences_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/EducationTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/ExperienceTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/List.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/education/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/education/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/education/Show.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebsiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
@@ -222,7 +227,15 @@
       <workItem from="1597911478796" duration="937000" />
       <workItem from="1597926935207" duration="4740000" />
       <workItem from="1597952892492" duration="809000" />
-      <workItem from="1597953833754" duration="1567000" />
+      <workItem from="1597953833754" duration="3963000" />
+      <workItem from="1597997563258" duration="81000" />
+      <workItem from="1597997754787" duration="378000" />
+      <workItem from="1598001777380" duration="6304000" />
+      <workItem from="1598016060426" duration="199000" />
+      <workItem from="1598026295180" duration="1293000" />
+      <workItem from="1598063618854" duration="3469000" />
+      <workItem from="1598078394944" duration="1568000" />
+      <workItem from="1598086820311" duration="704000" />
     </task>
     <servers />
   </component>
@@ -237,10 +250,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="370" y="129" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.760@0.0.1280.760" timestamp="1596803565533" />
-    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597954340128">
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598007781799">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.760@0.0.1280.760" timestamp="1597954340128" />
+    <state x="370" y="137" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.760@0.0.1280.760" timestamp="1598007781799" />
     <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1596861661703">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -261,5 +274,15 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1597849299865" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/resources/js/components/admin/skills/List.vue</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

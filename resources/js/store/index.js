@@ -6,7 +6,9 @@ export default {
         skills2:[],
         services:[],
         testimonials:[],
-        abouts:[]
+        abouts:[],
+        educations:[],
+        experiences:[]
     },
     getters:{
         allHeroes(state){
@@ -29,6 +31,12 @@ export default {
         },
         allAbouts(state){
             return state.abouts
+        },
+        AllEducation(state){
+            return state.educations
+        },
+        AllExperience(state){
+            return state.experiences
         }
 
     },
@@ -74,7 +82,19 @@ export default {
                 .then((response)=>{
                     context.commit('aboutList',response.data.abouts)
                 })
-        }
+        },
+        getallEducations(context){
+            axios.get('/all-education')
+                .then((response)=>{
+                    context.commit('educationtList',response.data.educations)
+                })
+        },
+        getallExperiences(context){
+            axios.get('/all-experience')
+                .then((response)=>{
+                    context.commit('experienceList',response.data.experiences)
+                })
+        },
 
     },
     mutations:{
@@ -98,6 +118,12 @@ export default {
         },
         aboutList(state,data){
             return state.abouts = data
+        },
+        educationtList(state,data){
+            return state.educations = data
+        },
+        experienceList(state,data){
+            return state.experiences = data
         },
 
     }

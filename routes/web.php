@@ -65,6 +65,14 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::post('/update-testimonial/{id}','TestimonialController@update_testimonial');
 
 
+    Route::get('/all-education','EducationController@all_education');
+    Route::get('/education-delete/{id}','EducationController@delete_education');
+    Route::get('/resume/education/show/{id}','EducationController@show_education');
+    Route::get('/resume/education/edit/{id}','EducationController@edit_education');
+    Route::post('/update-education/{id}','EducationController@update_education');
+
+
+    Route::get('/all-experience','ExperienceController@all_experience');
 
 
 });

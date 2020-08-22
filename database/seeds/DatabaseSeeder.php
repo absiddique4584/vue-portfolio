@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
              ServiceTableSeeder::class,
              TestimonialTableSeeder::class,
              AboutTableSeeder::class,
+             EducationTableSeeder::class,
+             ExperienceTableSeeder::class,
          ]);
     }
 }

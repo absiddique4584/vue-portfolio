@@ -123,6 +123,14 @@
                                     Testimonial
                                 </p>
                             </router-link>
+
+                        <li class="nav-item">
+                            <router-link to="/resumes" class="nav-link">
+                                <i class="fas fa-poll"></i>
+                                <p class="dashboard">
+                                    Resume
+                                </p>
+                            </router-link>
                         </li>
                         <li class="nav-item">
                             <router-link to="/post-list" class="nav-link">

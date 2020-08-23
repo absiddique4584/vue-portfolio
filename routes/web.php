@@ -70,9 +70,15 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/resume/education/show/{id}','EducationController@show_education');
     Route::get('/resume/education/edit/{id}','EducationController@edit_education');
     Route::post('/update-education/{id}','EducationController@update_education');
+    Route::post('/add-education','EducationController@Add_education');
 
 
     Route::get('/all-experience','ExperienceController@all_experience');
+    Route::get('/resume/experience/show/{id}','ExperienceController@show_experience');
+    Route::post('/add-experience','ExperienceController@add_experience');
+    Route::get('/experience-delete/{id}','ExperienceController@delete_experience');
+    Route::get('/resume/experience/edit/{id}','ExperienceController@edit_experience');
+    Route::post('/update-experience/{id}','ExperienceController@update_experience');
 
 
 });

@@ -34,10 +34,15 @@ import UpdateServices from './components/admin/service/Edit'
 import testimonialList from './components/admin/testimonial/List'
 import testimonialAdd from './components/admin/testimonial/Add'
 import testimonialedit from './components/admin/testimonial/Edit'
-//resume
+//resume-education
 import resumeList from './components/admin/resume/List'
 import resumeEducationShow from './components/admin/resume/education/Show'
 import resumeEducationEdit from './components/admin/resume/education/Edit'
+import resumeEducationAdd from './components/admin/resume/education/Add'
+//resume-experience
+import resumeExperienceShow from './components/admin/resume/experience/Show'
+import resumeAddexperience from './components/admin/resume/experience/Add'
+import resumeExperienceEdit from './components/admin/resume/experience/Edit'
 
 
 export const routes = [
@@ -166,6 +171,26 @@ export const routes = [
     {
         path:'/resume/education/edit/:educationID',
         component: resumeEducationEdit
+    } ,
+    {
+        path:'/add-education',
+        component: resumeEducationAdd
+    } ,
+
+    //resume-experience
+
+    {
+        path:'/resume/experience/show/:experience_showID',
+        component: resumeExperienceShow
+    },
+
+    {
+        path:'/resume/experience/edit/:experienceID',
+        component: resumeExperienceEdit
+    },
+    {
+        path:'/add-experience',
+        component: resumeAddexperience
     }
 
 

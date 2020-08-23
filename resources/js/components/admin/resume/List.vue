@@ -8,7 +8,7 @@
                             <div class="card-header">
                                 <h3 class="card-title "><strong> Resume(Education)</strong></h3>
                                 <div class="card-tools">
-                                    <router-link to="/add-resume"><button class="btn btn-primary ">Add Education</button></router-link>
+                                    <router-link to="/add-education"><button class="btn btn-primary ">Add Education</button></router-link>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -57,7 +57,7 @@
                             <div class="card-header">
                                 <h3 class="card-title "><strong>Resume(Experience)</strong></h3>
                                 <div class="card-tools">
-                                    <router-link to="/add-resume"><button class="btn btn-primary ">Add Experience</button></router-link>
+                                    <router-link to="/add-experience"><button class="btn btn-primary ">Add Experience</button></router-link>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -89,9 +89,9 @@
                                             <td>{{experience.work4|sortlength(10,'...')}}</td>
                                             <td><button class="btn btn-success">{{experience.status}}</button></td>
                                             <td>
-                                                <a href="" ><i class="fas fa-eye"></i></a>
-                                                <a href="" ><i class="fas fa-pencil-alt"></i></a>
-                                                <a href=""><i class="fas fa-trash"></i></a>
+                                                <router-link :to="`/resume/experience/show/${experience.id}`" ><i class="fas fa-eye"></i></router-link>
+                                                <router-link :to="`/resume/experience/edit/${experience.id}`" ><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deleteExperience(experience.id)"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
 
@@ -103,8 +103,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
         </section>
@@ -139,6 +137,17 @@ name: "List",
                 })
 
         },
+        deleteExperience(id){
+            axios.get('/experience-delete/'+id)
+                .then(()=>{
+                    this.$store.dispatch("getallExperiences")
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Yah! A Experience has been successfully Deleted'
+                    })
+                })
+
+        }
 
     }
 }

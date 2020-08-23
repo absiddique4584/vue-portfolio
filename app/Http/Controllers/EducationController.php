@@ -79,4 +79,22 @@ class EducationController extends Controller
     }
 
 
+
+
+    /**
+     * @param Request $request
+     * @return string[]
+     */
+    public function Add_education(Request $request){
+        $education =new Education();
+        $education ->degree =$request->degree;
+        $education ->year =$request->year;
+        $education ->versity =$request->versity;
+        $education ->skill =$request->skill;
+        $education ->status =$request->status;
+        $education->save();
+        return ['message'=>'ok'];
+    }
+
+
 }

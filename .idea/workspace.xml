@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f53217-a86f-4c25-a4fc-b1b433c66b8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_25_053141_create_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/CategoryTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/portfolio/Add.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/portfolio/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/portfolio/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExperienceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExperienceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/resume/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/resume/education/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/education/Add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/resume/experience/Show.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/adminmaster.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,7 +229,8 @@
       <workItem from="1598150631780" duration="2358000" />
       <workItem from="1598153962953" duration="921000" />
       <workItem from="1598155066876" duration="4675000" />
-      <workItem from="1598172499659" duration="309000" />
+      <workItem from="1598172499659" duration="567000" />
+      <workItem from="1598330665515" duration="8521000" />
     </task>
     <servers />
   </component>

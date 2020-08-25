@@ -43,6 +43,10 @@ import resumeEducationAdd from './components/admin/resume/education/Add'
 import resumeExperienceShow from './components/admin/resume/experience/Show'
 import resumeAddexperience from './components/admin/resume/experience/Add'
 import resumeExperienceEdit from './components/admin/resume/experience/Edit'
+//portfolio
+import portfolioList from './components/admin/portfolio/List'
+import categoryAdd from './components/admin/portfolio/Add'
+import categoryEdit from './components/admin/portfolio/Edit'
 
 
 export const routes = [
@@ -191,6 +195,21 @@ export const routes = [
     {
         path:'/add-experience',
         component: resumeAddexperience
+    },
+
+
+    //portfolio
+    {
+        path:'/portfolio',
+        component: portfolioList
+    },
+    {
+        path:'/add-portfolio',
+        component: categoryAdd
+    },
+    {
+        path:'/edit/category/:categoryID',
+        component: categoryEdit
     }
 
 

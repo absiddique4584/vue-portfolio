@@ -80,5 +80,12 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/resume/experience/edit/{id}','ExperienceController@edit_experience');
     Route::post('/update-experience/{id}','ExperienceController@update_experience');
 
+    //portfolio section (Category)
+    Route::get('/portfolio/category','CategoryController@all_category');
+    Route::post('/add-category','CategoryController@add_category');
+    Route::get('/delete-category/{id}','CategoryController@delete_category');
+    Route::get('/edit-category/{id}','CategoryController@edit_category');
+    Route::post('/update-category/{id}','CategoryController@update_category');
+
 
 });

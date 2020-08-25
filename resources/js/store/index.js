@@ -8,7 +8,8 @@ export default {
         testimonials:[],
         abouts:[],
         educations:[],
-        experiences:[]
+        experiences:[],
+        categories:[]
     },
     getters:{
         allHeroes(state){
@@ -37,6 +38,9 @@ export default {
         },
         AllExperience(state){
             return state.experiences
+        },
+        allCategories(state){
+            return state.categories
         }
 
     },
@@ -96,6 +100,13 @@ export default {
                 })
         },
 
+        getallCategories(context){
+            axios.get('/portfolio/category')
+                .then((response)=>{
+                    context.commit('categoryList',response.data.categories)
+                })
+        }
+
     },
     mutations:{
         getheroes(state,data){
@@ -125,6 +136,9 @@ export default {
         experienceList(state,data){
             return state.experiences = data
         },
+        categoryList(state,data){
+            return state.categories = data
+        }
 
     }
 

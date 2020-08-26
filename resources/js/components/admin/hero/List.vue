@@ -6,6 +6,49 @@
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
+                                <h4 class="card-title "><strong>Section Hero<span style="color: #e83e8c;"><u>(Background Image)</u></span></strong></h4>
+                                <p>(Please don't add more than one item)</p>
+                                <div class="card-tools">
+                                    <router-link to="/add-background"><button class="btn btn-primary ">Add Background</button></router-link>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table  class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SI NO</th>
+                                            <th>Image</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(back,index) in getAllbackground" :key="back.id">
+                                            <td>{{index+1}}</td>
+                                            <td>
+                                                <img :src="ourImage(back.image)" alt="" width="140" height="90">
+                                            </td>
+                                            <td><button class="btn btn-success">{{ back.status }}</button></td>
+                                            <td>
+                                                <router-link :to="`/edit-background/${back.id}`"><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deleteBackground(back.id)"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="col-md-12 ">
+                        <div class="card">
+                            <div class="card-header">
                                 <h4 class="card-title "><strong>Section Hero</strong>(Please don't add more than one item)</h4>
                                 <div class="card-tools">
                                     <router-link to="/add-hero"><button class="btn btn-primary ">Add Hero</button></router-link>
@@ -13,7 +56,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example2" class="table table-bordered table-hover">
+                                <table  class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>SI NO</th>
@@ -68,10 +111,14 @@ export default {
     name: "List",
     mounted() {
         this.$store.dispatch('allHero')
+        this.$store.dispatch('getBackground')
     },
     computed:{
         getAllHeroes(){
             return this.$store.getters.allHeroes
+        },
+        getAllbackground(){
+            return this.$store.getters.allBackground
         }
     },
     methods:{
@@ -84,8 +131,22 @@ export default {
                         title: 'Yah! A Heroes has been successfully Deleted'
                     })
                 })
+        },
+        ourImage(img){
+            return "uploads/background/"+img;
+        },
+        deleteBackground(id){
+            axios.get('/background-delete/'+id)
+                .then(()=>{
+                    this.$store.dispatch("getBackground")
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Yah! A Background has been successfully Deleted'
+                    })
+                })
         }
     }
+
 }
 </script>
 

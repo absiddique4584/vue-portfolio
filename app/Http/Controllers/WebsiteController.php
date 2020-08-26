@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Background;
 use App\Models\Category;
 use App\Models\Education;
 use App\Models\Experience;
@@ -32,8 +33,10 @@ class WebsiteController extends Controller
         $experiences = Experience::where('status','active')->get();
         $categories = Category::select('id','name','slug')->get();
         $portfolio = Portfolio::with('category')->select('id','category_id','title','image')->where('status','active')->get();
-        //return $portfolio;
+        $background = Background::select('id','image')->where('status','active')->first();
+        //return $background;
         return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials',
-            'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio'));
+            'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio','background'
+        ));
     }
 }

@@ -22,6 +22,13 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::post('/update-hero/{id}','HeroController@update_Hero');
     Route::get('/view-hero/{id}','HeroController@view_Hero');
 
+    //background Hero section
+    Route::get('/hero/background','BackgroundController@all_background');
+    Route::post('/background/add','BackgroundController@add_background');
+    Route::get('/background-delete/{id}','BackgroundController@delete_background');
+    Route::get('/background/edit/{id}','BackgroundController@edit_background');
+    Route::post('/update-background/{id}','BackgroundController@update_background');
+
 
     Route::get('/all-about','AboutController@all_about');
     Route::post('/about/add','AboutController@add_about');

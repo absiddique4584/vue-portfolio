@@ -10,8 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/website/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('assets/website/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('assets/admin/image/index.png')}}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -26,7 +25,15 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/website/css/style.css')}}" rel="stylesheet">
-
+    <style>
+        #hero {
+            width: 100%;
+            height: 100vh;
+            background: url("{{asset('uploads/background/'.$background->image)}}") top right no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,7 +59,7 @@
 
     <!-- ======= Hero Section ======= -->
     @foreach($heroes as $hero)
-    <section id="hero" class="d-flex flex-column justify-content-center">
+    <section id="hero" class="d-flex flex-column justify-content-center" >
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
             <h1>{{$hero->name}}</h1>
 

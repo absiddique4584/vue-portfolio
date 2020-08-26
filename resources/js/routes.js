@@ -6,6 +6,10 @@ import AdminHero from './components/admin/hero/List'
 import AddHero from './components/admin/hero/Add'
 import EditHero from './components/admin/hero/Edit'
 import ViewHero from './components/admin/hero/View'
+
+//hero background
+import backgroundAdd from './components/admin/hero/background/Add'
+import backgroundEdit from './components/admin/hero/background/Edit'
 //About
 import AboutList from './components/admin/about/List'
 import AboutAdd from './components/admin/about/Add'
@@ -76,6 +80,16 @@ export const routes = [
     {
         path: '/view-hero/:viewID',
         component: ViewHero
+    },
+    //hero background section
+
+    {
+        path: '/add-background',
+        component: backgroundAdd
+    },
+    {
+        path: '/edit-background/:backgroundID',
+        component: backgroundEdit
     },
 
     //Abouts

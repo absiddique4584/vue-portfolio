@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
              ExperienceTableSeeder::class,
              CategoryTableSeeder::class,
              PortfolioTableSeeder::class,
+             BackgroundTableSeeder::class,
          ]);
     }
 }

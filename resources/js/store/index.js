@@ -10,7 +10,8 @@ export default {
         educations:[],
         experiences:[],
         categories:[],
-        portfolio:[]
+        portfolio:[],
+        background:[]
     },
     getters:{
         allHeroes(state){
@@ -45,7 +46,10 @@ export default {
         },
         getPortfolio(state){
             return state.portfolio
-        }
+        },
+        allBackground(state){
+            return state.background
+        },
 
     },
     actions:{
@@ -116,6 +120,12 @@ export default {
                 .then((response)=>{
                     context.commit('portfolioList',response.data.portfolio)
                 })
+        },
+        getBackground(context){
+            axios.get('/hero/background')
+                .then((response)=>{
+                    context.commit('backgroundList',response.data.background)
+                })
         }
 
     },
@@ -152,6 +162,9 @@ export default {
         },
         portfolioList(state,data){
             return state.portfolio = data
+        },
+        backgroundList(state,data){
+            return state.background = data
         }
 
     }

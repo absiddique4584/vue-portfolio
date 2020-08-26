@@ -11,7 +11,7 @@ Route::get('/', 'WebsiteController@website');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//Route::get('/{anypath}', 'HomeController@index')->where('path', '.*');
 
 
 Route::group(['middleware' => ['auth']],  function (){
@@ -87,5 +87,12 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/edit-category/{id}','CategoryController@edit_category');
     Route::post('/update-category/{id}','CategoryController@update_category');
 
+
+    //portfolio body section
+    Route::get('/portfolio/body','PortfolioController@all_portfolio');
+    Route::post('/add-profile','PortfolioController@add_portfolio');
+    Route::get('/delete-portfolio/{id}','PortfolioController@delete_portfolio');
+    Route::get('/portfolio/{id}','PortfolioController@portfolio');
+    Route::post('/update-portfolio/{id}','PortfolioController@update_portfolio');
 
 });

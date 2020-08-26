@@ -9,7 +9,8 @@ export default {
         abouts:[],
         educations:[],
         experiences:[],
-        categories:[]
+        categories:[],
+        portfolio:[]
     },
     getters:{
         allHeroes(state){
@@ -41,6 +42,9 @@ export default {
         },
         allCategories(state){
             return state.categories
+        },
+        getPortfolio(state){
+            return state.portfolio
         }
 
     },
@@ -105,6 +109,13 @@ export default {
                 .then((response)=>{
                     context.commit('categoryList',response.data.categories)
                 })
+        },
+
+        getallPortfolio(context){
+            axios.get('/portfolio/body')
+                .then((response)=>{
+                    context.commit('portfolioList',response.data.portfolio)
+                })
         }
 
     },
@@ -138,6 +149,9 @@ export default {
         },
         categoryList(state,data){
             return state.categories = data
+        },
+        portfolioList(state,data){
+            return state.portfolio = data
         }
 
     }

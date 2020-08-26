@@ -6388,14 +6388,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   mounted: function mounted() {
     this.$store.dispatch('getallCategories');
+    this.$store.dispatch('getallPortfolio');
   },
   computed: {
     allData: function allData() {
       return this.$store.getters.allCategories;
+    },
+    allPortfolio: function allPortfolio() {
+      return this.$store.getters.getPortfolio;
     }
   },
   methods: {
@@ -6415,6 +6459,319 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Ooh!something Wrong !'
         });
       }));
+    },
+    deletePortfolio: function deletePortfolio(id) {
+      var _this2 = this;
+
+      alert('Are you sure? Want To Delete It!', axios.get('/delete-portfolio/' + id).then(function () {
+        _this2.$store.dispatch("getallPortfolio");
+
+        toast.fire({
+          icon: 'success',
+          title: 'Yah! A Portfolio has been successfully Deleted'
+        });
+      })["catch"](function () {
+        toast.fire({
+          icon: 'success',
+          title: 'Ooh!something Wrong !'
+        });
+      }));
+    },
+    ourImage: function ourImage(img) {
+      return "uploads/portfolio/" + img;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Add",
+  data: function data() {
+    return {
+      form: new Form({
+        category_id: '',
+        title: '',
+        image: '',
+        status: ''
+      })
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getallCategories');
+  },
+  computed: {
+    allData: function allData() {
+      return this.$store.getters.allCategories;
+    }
+  },
+  methods: {
+    addProfile: function addProfile() {
+      var _this = this;
+
+      this.form.post('/add-profile').then(function (response) {
+        //console.log(response.data)
+        _this.$router.push('/portfolio');
+
+        toast.fire({
+          icon: 'success',
+          title: 'Yah! A portfolio Has Been successfully Added'
+        });
+      })["catch"](function () {});
+    },
+    changePhoto: function changePhoto(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048576) {
+        swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>This File Is Too Much Big</a>'
+        });
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this2.form.image = event.target.result;
+          console.log(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Edit",
+  data: function data() {
+    return {
+      form: new Form({
+        category_id: '',
+        title: '',
+        image: '',
+        status: ''
+      })
+    };
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getallCategories');
+  },
+  computed: {
+    allData: function allData() {
+      return this.$store.getters.allCategories;
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/portfolio/".concat(this.$route.params.portfolioID)).then(function (response) {
+      //console.log(response.data)
+      _this.form.fill(response.data.portfolio);
+    });
+  },
+  methods: {
+    updateProfile: function updateProfile() {
+      var _this2 = this;
+
+      this.form.post("/update-portfolio/".concat(this.$route.params.portfolioID)).then(function () {
+        _this2.$router.push('/portfolio');
+
+        toast.fire({
+          icon: 'success',
+          title: 'Yah! Portfolio Updated successfully'
+        });
+      })["catch"](function () {});
+    },
+    changePhoto: function changePhoto(event) {
+      var _this3 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048576) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>This File Is Too Much Big</a>'
+        });
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this3.form.image = event.target.result; //console.log(event.target.result)
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    updateImage: function updateImage() {
+      var img = this.form.image;
+
+      if (img.length > 100) {
+        return this.form.image;
+      } else {
+        return "/uploads/portfolio/".concat(this.form.image);
+      }
     }
   }
 });
@@ -70842,7 +71199,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h4", [_vm._v("Home")])])
+    return _c("div", [_c("h4", [_vm._v("Dashboard")])])
   }
 ]
 render._withStripped = true
@@ -76013,9 +76370,9 @@ var render = function() {
                   "div",
                   { staticClass: "card-tools" },
                   [
-                    _c("router-link", { attrs: { to: "/add-portfolio" } }, [
+                    _c("router-link", { attrs: { to: "/add-category" } }, [
                       _c("button", { staticClass: "btn btn-primary " }, [
-                        _vm._v("Add Portfolio")
+                        _vm._v("Add Category")
                       ])
                     ])
                   ],
@@ -76026,10 +76383,7 @@ var render = function() {
               _c("div", { staticClass: "card-body" }, [
                 _c(
                   "table",
-                  {
-                    staticClass: "table table-bordered table-hover",
-                    attrs: { id: "example2" }
-                  },
+                  { staticClass: "table table-bordered table-hover" },
                   [
                     _vm._m(1),
                     _vm._v(" "),
@@ -76083,6 +76437,107 @@ var render = function() {
                 )
               ])
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12 " }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "card-tools" },
+                  [
+                    _c("router-link", { attrs: { to: "/add-portfolio" } }, [
+                      _c("button", { staticClass: "btn btn-primary " }, [
+                        _vm._v("Add Portfolio")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-bordered table-hover" },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.allPortfolio, function(portfolio, index) {
+                        return _c("tr", { key: portfolio.id }, [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          portfolio.category
+                            ? _c("td", [
+                                _vm._v(_vm._s(portfolio.category.name))
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                _vm._f("sortlength")(portfolio.title, 20, "...")
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.ourImage(portfolio.image),
+                                alt: "",
+                                width: "40",
+                                height: "50"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("button", { staticClass: "btn btn-success" }, [
+                              _vm._v(_vm._s(portfolio.status))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: "/edit/portfolio/" + portfolio.id
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.deletePortfolio(portfolio.id)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-trash" })]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
           ])
         ])
       ])
@@ -76114,6 +76569,566 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", { staticClass: "card-title " }, [
+      _c("strong", [_vm._v("Portfolio (Body)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("SI NO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Category")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Image")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card card-primary" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "h3",
+                  { staticClass: "card-title" },
+                  [
+                    _vm._v("Add New Portfolio "),
+                    _c("router-link", { attrs: { to: "/portfolio" } }, [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Go Back")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { role: "form" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.addProfile()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Select Category")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.category_id,
+                                expression: "form.category_id"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("category_id")
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "category_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v("Select One")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.allData, function(category) {
+                              return _c(
+                                "option",
+                                { domProps: { value: category.id } },
+                                [_vm._v(" " + _vm._s(category.name))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "category_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Add Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.title,
+                              expression: "form.title"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("title") },
+                          attrs: {
+                            type: "text",
+                            name: "title",
+                            id: "title",
+                            placeholder: "Add New Title"
+                          },
+                          domProps: { value: _vm.form.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "title", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "title" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "status" } }, [
+                          _vm._v("Add status(active,inactive)")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.status,
+                              expression: "form.status"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("status")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "status",
+                            id: "status",
+                            placeholder: "Add New status"
+                          },
+                          domProps: { value: _vm.form.status },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "status", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "status" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          class: { "is-invalid": _vm.form.errors.has("image") },
+                          attrs: { name: "image", type: "file" },
+                          on: {
+                            change: function($event) {
+                              return _vm.changePhoto($event)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: _vm.form.image,
+                            alt: "",
+                            width: "80",
+                            height: "80"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "image" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card card-primary" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "h3",
+                  { staticClass: "card-title" },
+                  [
+                    _vm._v("Update Portfolio "),
+                    _c("router-link", { attrs: { to: "/portfolio" } }, [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Go Back")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { role: "form" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updateProfile()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Edit Category")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.category_id,
+                                expression: "form.category_id"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("category_id")
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "category_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v("Select One")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.allData, function(category) {
+                              return _c(
+                                "option",
+                                { domProps: { value: category.id } },
+                                [_vm._v(" " + _vm._s(category.name))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "category_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Edit Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.title,
+                              expression: "form.title"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("title") },
+                          attrs: { type: "text", name: "title", id: "title" },
+                          domProps: { value: _vm.form.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "title", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "title" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "status" } }, [
+                          _vm._v("Edit status(active,inactive)")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.status,
+                              expression: "form.status"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("status")
+                          },
+                          attrs: { type: "text", name: "status", id: "status" },
+                          domProps: { value: _vm.form.status },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "status", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "status" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          class: { "is-invalid": _vm.form.errors.has("image") },
+                          attrs: { name: "image", type: "file" },
+                          on: {
+                            change: function($event) {
+                              return _vm.changePhoto($event)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: _vm.updateImage(),
+                            alt: "",
+                            width: "80",
+                            height: "80"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "image" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
     ])
   }
 ]
@@ -99271,6 +100286,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Add.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Add.vue?vue&type=template&id=386e8beb&scoped=true& */ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true&");
+/* harmony import */ var _Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Add.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "386e8beb",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/portfolio/portfolio-body/Add.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Add.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true& ***!
+  \*******************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Add.vue?vue&type=template&id=386e8beb&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Add.vue?vue&type=template&id=386e8beb&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_386e8beb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Edit.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=fdaccea0&scoped=true& */ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "fdaccea0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/portfolio/portfolio-body/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true& ***!
+  \********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=fdaccea0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/portfolio/portfolio-body/Edit.vue?vue&type=template&id=fdaccea0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_fdaccea0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/resume/List.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/admin/resume/List.vue ***!
@@ -100654,6 +101807,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/admin/portfolio/List */ "./resources/js/components/admin/portfolio/List.vue");
 /* harmony import */ var _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/admin/portfolio/Add */ "./resources/js/components/admin/portfolio/Add.vue");
 /* harmony import */ var _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/admin/portfolio/Edit */ "./resources/js/components/admin/portfolio/Edit.vue");
+/* harmony import */ var _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Add */ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue");
+/* harmony import */ var _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Edit */ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue");
  //Hero section
 
 
@@ -100694,6 +101849,9 @@ __webpack_require__.r(__webpack_exports__);
 
  //portfolio
 
+
+
+ //portfolio body
 
 
 
@@ -100803,11 +101961,18 @@ var routes = [{
   path: '/portfolio',
   component: _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_31__["default"]
 }, {
-  path: '/add-portfolio',
+  path: '/add-category',
   component: _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_32__["default"]
 }, {
   path: '/edit/category/:categoryID',
   component: _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_33__["default"]
+}, //portfolio body
+{
+  path: '/add-portfolio',
+  component: _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_34__["default"]
+}, {
+  path: '/edit/portfolio/:portfolioID',
+  component: _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_35__["default"]
 }];
 
 /***/ }),
@@ -100832,7 +101997,8 @@ __webpack_require__.r(__webpack_exports__);
     abouts: [],
     educations: [],
     experiences: [],
-    categories: []
+    categories: [],
+    portfolio: []
   },
   getters: {
     allHeroes: function allHeroes(state) {
@@ -100864,6 +102030,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allCategories: function allCategories(state) {
       return state.categories;
+    },
+    getPortfolio: function getPortfolio(state) {
+      return state.portfolio;
     }
   },
   actions: {
@@ -100916,6 +102085,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/portfolio/category').then(function (response) {
         context.commit('categoryList', response.data.categories);
       });
+    },
+    getallPortfolio: function getallPortfolio(context) {
+      axios.get('/portfolio/body').then(function (response) {
+        context.commit('portfolioList', response.data.portfolio);
+      });
     }
   },
   mutations: {
@@ -100948,6 +102122,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     categoryList: function categoryList(state, data) {
       return state.categories = data;
+    },
+    portfolioList: function portfolioList(state, data) {
+      return state.portfolio = data;
     }
   }
 });

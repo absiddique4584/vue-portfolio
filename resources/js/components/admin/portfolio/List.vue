@@ -8,12 +8,12 @@
                             <div class="card-header">
                                 <h4 class="card-title "><strong>Portfolio (Category)</strong></h4>
                                 <div class="card-tools">
-                                    <router-link to="/add-portfolio"><button class="btn btn-primary ">Add Portfolio</button></router-link>
+                                    <router-link to="/add-category"><button class="btn btn-primary ">Add Category</button></router-link>
                                 </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example2" class="table table-bordered table-hover">
+                                <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>SI NO</th>
@@ -34,9 +34,49 @@
                                                 <a @click.prevent="deleteCategory(category.id)" ><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
-
                                     </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
 
+                    <div class="col-md-12 ">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title "><strong>Portfolio (Body)</strong></h4>
+                                <div class="card-tools">
+                                    <router-link to="/add-portfolio"><button class="btn btn-primary ">Add Portfolio</button></router-link>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table  class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SI NO</th>
+                                            <th>Category</th>
+                                            <th>Title</th>
+                                            <th>Image</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(portfolio,index) in allPortfolio" :key="portfolio.id">
+                                            <td>{{index+1}}</td>
+                                            <td v-if="portfolio.category">{{portfolio.category.name}}</td>
+                                            <td>{{portfolio.title|sortlength(20,'...')}}</td>
+                                            <td>
+                                                <img :src="ourImage(portfolio.image)" alt="" width="40" height="50">
+                                            </td>
+                                            <td><button class="btn btn-success">{{portfolio.status}}</button></td>
+                                            <td>
+                                                <router-link :to="`/edit/portfolio/${portfolio.id}`"><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deletePortfolio(portfolio.id)" ><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                             <!-- /.card-body -->
@@ -53,10 +93,14 @@ export default {
 name: "List",
     mounted() {
           this.$store.dispatch('getallCategories')
+          this.$store.dispatch('getallPortfolio')
        },
     computed:{
        allData(){
            return this.$store.getters.allCategories
+       },
+       allPortfolio(){
+           return this.$store.getters.getPortfolio
        }
     },
     methods:{
@@ -77,7 +121,28 @@ name: "List",
                     })
                 })
             )
-        }
+        },
+        deletePortfolio(id){
+            alert(
+                'Are you sure? Want To Delete It!',
+                axios.get('/delete-portfolio/'+id)
+                    .then(()=>{
+                        this.$store.dispatch("getallPortfolio")
+                        toast.fire({
+                            icon: 'success',
+                            title: 'Yah! A Portfolio has been successfully Deleted'
+                        })
+                    }).catch(()=>{
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Ooh!something Wrong !'
+                    })
+                })
+            )
+        },
+        ourImage(img){
+            return "uploads/portfolio/"+img;
+        },
     }
 }
 </script>

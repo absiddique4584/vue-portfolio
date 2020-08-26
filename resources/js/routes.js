@@ -48,6 +48,10 @@ import portfolioList from './components/admin/portfolio/List'
 import categoryAdd from './components/admin/portfolio/Add'
 import categoryEdit from './components/admin/portfolio/Edit'
 
+//portfolio body
+import portfolioAdd from './components/admin/portfolio/portfolio-body/Add'
+import portfolioEdit from './components/admin/portfolio/portfolio-body/Edit'
+
 
 export const routes = [
     {
@@ -204,12 +208,22 @@ export const routes = [
         component: portfolioList
     },
     {
-        path:'/add-portfolio',
+        path:'/add-category',
         component: categoryAdd
     },
     {
         path:'/edit/category/:categoryID',
         component: categoryEdit
+    },
+
+    //portfolio body
+    {
+        path:'/add-portfolio',
+        component: portfolioAdd
+    },
+    {
+        path:'/edit/portfolio/:portfolioID',
+        component: portfolioEdit
     }
 
 

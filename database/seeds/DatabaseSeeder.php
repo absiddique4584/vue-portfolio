@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
              EducationTableSeeder::class,
              ExperienceTableSeeder::class,
              CategoryTableSeeder::class,
+             PortfolioTableSeeder::class,
          ]);
     }
 }

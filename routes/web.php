@@ -37,13 +37,20 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/edit-about/{id}','AboutController@edit_about');
     Route::post('/update-about/{id}','AboutController@update_about');
 
-
+    //facts
     Route::get('/all-facts','FactController@all_fact');
     Route::get('/delete-fact/{id}','FactController@delete_fact');
     Route::get('/view-fact/{id}','FactController@view_fact');
     Route::post('/add-fact','FactController@add_fact');
     Route::get('/edit-fact/{id}','FactController@edit_fact');
     Route::post('/update-fact/{id}','FactController@update_fact');
+
+    //fact header
+    Route::get('/fact-header','FactheaderController@all_factheader');
+    Route::post('/fact-header/add','FactheaderController@add_factheader');
+    Route::get('/delete-header/{id}','FactheaderController@delete_factheader');
+    Route::get('/edit-factHeader/{id}','FactheaderController@edit_factheader');
+    Route::post('/update-factheader/{id}','FactheaderController@update_factheader');
 
 
     Route::get('/all-skills','SkillController@all_skills');

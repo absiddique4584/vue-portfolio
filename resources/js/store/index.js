@@ -11,7 +11,8 @@ export default {
         experiences:[],
         categories:[],
         portfolio:[],
-        background:[]
+        background:[],
+        factheader:[],
     },
     getters:{
         allHeroes(state){
@@ -50,6 +51,9 @@ export default {
         allBackground(state){
             return state.background
         },
+        allfactHeader(state){
+            return state.factheader
+        }
 
     },
     actions:{
@@ -126,7 +130,13 @@ export default {
                 .then((response)=>{
                     context.commit('backgroundList',response.data.background)
                 })
-        }
+        },
+        getallFactheader(context){
+            axios.get('/fact-header')
+                .then((response)=>{
+                    context.commit('headerFact',response.data.factheader)
+                })
+        },
 
     },
     mutations:{
@@ -165,7 +175,10 @@ export default {
         },
         backgroundList(state,data){
             return state.background = data
-        }
+        },
+        headerFact(state,data){
+            return state.factheader = data
+        },
 
     }
 

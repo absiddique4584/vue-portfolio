@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Fact;
+use App\Models\Factheader;
 use App\Models\Hero;
 use App\Models\Portfolio;
 use App\Models\Service;
@@ -34,9 +35,11 @@ class WebsiteController extends Controller
         $categories = Category::select('id','name','slug')->get();
         $portfolio = Portfolio::with('category')->select('id','category_id','title','image')->where('status','active')->get();
         $background = Background::select('id','image')->where('status','active')->first();
-        //return $background;
+        $factheader = Factheader::where('status','active')->get();
+        //return $factheader;
         return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials',
-            'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio','background'
+             'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio','background',
+             'factheader'
         ));
     }
 }

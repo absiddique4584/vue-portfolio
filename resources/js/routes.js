@@ -21,6 +21,9 @@ import AdminFacts from './components/admin/facts/List'
 import Factview from './components/admin/facts/View'
 import FactEdit from './components/admin/facts/Edit'
 import Addfact from './components/admin/facts/Add'
+//fact header description
+import AddfactHeader from './components/admin/facts/header/Add'
+import EditfactHeader from './components/admin/facts/header/Edit'
 
 //skills
 import SkillList from './components/admin/skills/List'
@@ -129,6 +132,17 @@ export const routes = [
     {
         path: '/add-fact',
         component: Addfact
+    },
+
+    //fact header description
+    {
+        path: '/add-fact/header',
+        component: AddfactHeader
+    },
+
+    {
+        path: '/factHeader-edit/:factheaderID',
+        component: EditfactHeader
     },
 
 //skills

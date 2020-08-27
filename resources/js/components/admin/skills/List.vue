@@ -2,6 +2,49 @@
     <div>
         <section class="content" >
             <div class="container-fluid">
+
+
+                <div class="row justify-content-around">
+                    <div class="col-md-12 ">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title "><strong>Skill Header Section</strong></h3>
+                                <div class="card-tools">
+                                    <router-link to="/add-skillheader"><button class="btn btn-primary ">Add Skillheader</button></router-link>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SI NO</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(skill,index) in skillHeader" :key="skill.id">
+                                            <td>{{index+1}}</td>
+                                            <td>{{skill.desc}}</td>
+                                            <td><button class="btn btn-success">{{skill.status}}</button></td>
+                                            <td>
+                                                <router-link :to="`/edit-skillheader/${skill.id}`" ><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deleteSkillHeader(skill.id)"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="row justify-content-around">
                     <div class="col-md-12 ">
                         <div class="card">
@@ -101,6 +144,7 @@ name: "List",
     mounted(){
        this.$store.dispatch('getallSkills')
        this.$store.dispatch('getallSkills2')
+       this.$store.dispatch('getSkillheader')
     },
     computed:{
         allSkills(){
@@ -109,6 +153,9 @@ name: "List",
         allSkills2(){
             return this.$store.getters.AllSkills2
         },
+        skillHeader(){
+            return this.$store.getters.AllSkillheader
+        }
 
     },
     methods:{
@@ -131,8 +178,18 @@ name: "List",
                         title: 'Yah! A Skill2 has been successfully Deleted'
                     })
                 })
-        }
-    },
+        },
+        deleteSkillHeader(id){
+            axios.get('/delete-skillheader/'+id)
+                .then(()=>{
+                    this.$store.dispatch("getSkillheader")
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Yah! A Skill(Header) has been successfully Deleted'
+                    })
+                })
+        },
+    }
 
 }
 </script>

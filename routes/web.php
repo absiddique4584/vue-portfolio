@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/edit-factHeader/{id}','FactheaderController@edit_factheader');
     Route::post('/update-factheader/{id}','FactheaderController@update_factheader');
 
-
+    //skill
     Route::get('/all-skills','SkillController@all_skills');
     Route::get('/all-skills2','SkillController@all_skills2');
     Route::get('/delete-skill/{id}','SkillController@delete_skill');
@@ -63,6 +63,13 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/editSkill2/{id}','SkillController@edit_skill2');
     Route::post('/update-skill/{id}','SkillController@update_skill');
     Route::post('/update-skill2/{id}','SkillController@update_skill2');
+
+    //skill-header
+    Route::get('/skill-header','SkillheaderController@all_skill');
+    Route::post('/skill-header/add','SkillheaderController@add_skill');
+    Route::post('/update-skillheader/{id}','SkillheaderController@update_skill');
+    Route::get('/delete-skillheader/{id}','SkillheaderController@delete_skill');
+    Route::get('/edit-skillHeader/{id}','SkillheaderController@edit_skill');
 
 
     Route::get('/all-services','ServiceController@all_service');

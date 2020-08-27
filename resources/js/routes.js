@@ -32,6 +32,10 @@ import Skill2Add from './components/admin/skills/Add2'
 import editSkill from './components/admin/skills/Edit'
 import editSkill2 from './components/admin/skills/Edit2'
 
+//skill header
+import addSkillheader from './components/admin/skills/skillheader/Add'
+import editSkillheader from './components/admin/skills/skillheader/Edit'
+
 //services
 import AdminServices from './components/admin/service/List'
 import AdminAddServices from './components/admin/service/Add'
@@ -145,7 +149,7 @@ export const routes = [
         component: EditfactHeader
     },
 
-//skills
+     //skills
     {
         path: '/skills',
         component: SkillList
@@ -166,6 +170,19 @@ export const routes = [
         path: '/edit-skill2/:skill2ID',
         component: editSkill2
     },
+
+
+   //skill Header Section
+    {
+        path: '/add-skillheader',
+        component: addSkillheader
+    },
+    {
+        path: '/edit-skillheader/:skillheaderID',
+        component: editSkillheader
+    },
+
+
 
     //services
     {

@@ -13,6 +13,7 @@ export default {
         portfolio:[],
         background:[],
         factheader:[],
+        skillheader:[]
     },
     getters:{
         allHeroes(state){
@@ -53,6 +54,9 @@ export default {
         },
         allfactHeader(state){
             return state.factheader
+        },
+        AllSkillheader(state){
+            return state.skillheader
         }
 
     },
@@ -137,6 +141,12 @@ export default {
                     context.commit('headerFact',response.data.factheader)
                 })
         },
+        getSkillheader(context){
+            axios.get('/skill-header')
+                .then((response)=>{
+                    context.commit('skillHeaderList',response.data.skillheader)
+                })
+        }
 
     },
     mutations:{
@@ -179,6 +189,9 @@ export default {
         headerFact(state,data){
             return state.factheader = data
         },
+        skillHeaderList(state,data){
+            return state.skillheader = data
+        }
 
     }
 

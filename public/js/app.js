@@ -9093,11 +9093,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   mounted: function mounted() {
     this.$store.dispatch('getallSkills');
     this.$store.dispatch('getallSkills2');
+    this.$store.dispatch('getSkillheader');
   },
   computed: {
     allSkills: function allSkills() {
@@ -9105,6 +9149,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allSkills2: function allSkills2() {
       return this.$store.getters.AllSkills2;
+    },
+    skillHeader: function skillHeader() {
+      return this.$store.getters.AllSkillheader;
     }
   },
   methods: {
@@ -9131,6 +9178,193 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Yah! A Skill2 has been successfully Deleted'
         });
       });
+    },
+    deleteSkillHeader: function deleteSkillHeader(id) {
+      var _this3 = this;
+
+      axios.get('/delete-skillheader/' + id).then(function () {
+        _this3.$store.dispatch("getSkillheader");
+
+        toast.fire({
+          icon: 'success',
+          title: 'Yah! A Skill(Header) has been successfully Deleted'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Add",
+  data: function data() {
+    return {
+      form: new Form({
+        desc: '',
+        status: ''
+      })
+    };
+  },
+  methods: {
+    addHeader: function addHeader() {
+      var _this = this;
+
+      this.form.post('/skill-header/add').then(function () {
+        _this.$router.push('/skills');
+
+        toast.fire({
+          type: 'success',
+          title: 'Yah! A New Skill (Header) Added successfully !'
+        });
+      })["catch"](function () {});
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Edit",
+  data: function data() {
+    return {
+      form: new Form({
+        desc: '',
+        status: ''
+      })
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/edit-skillHeader/".concat(this.$route.params.skillheaderID)).then(function (response) {
+      _this.form.fill(response.data.skillheader);
+    });
+  },
+  methods: {
+    updateHeader: function updateHeader() {
+      var _this2 = this;
+
+      this.form.post("/update-skillheader/".concat(this.$route.params.skillheaderID)).then(function (response) {
+        _this2.$router.push('/skills');
+
+        toast.fire({
+          icon: 'success',
+          title: 'Yah! Skill(Header) successfully Updated !'
+        });
+      })["catch"](function () {});
     }
   }
 });
@@ -82817,6 +83051,84 @@ var render = function() {
                   "div",
                   { staticClass: "card-tools" },
                   [
+                    _c("router-link", { attrs: { to: "/add-skillheader" } }, [
+                      _c("button", { staticClass: "btn btn-primary " }, [
+                        _vm._v("Add Skillheader")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-bordered table-hover" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.skillHeader, function(skill, index) {
+                        return _c("tr", { key: skill.id }, [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(skill.desc))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("button", { staticClass: "btn btn-success" }, [
+                              _vm._v(_vm._s(skill.status))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: { to: "/edit-skillheader/" + skill.id }
+                                },
+                                [_c("i", { staticClass: "fas fa-pencil-alt" })]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.deleteSkillHeader(skill.id)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fas fa-trash" })]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-md-12 " }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "card-tools" },
+                  [
                     _c("router-link", { attrs: { to: "/add-skill" } }, [
                       _c("button", { staticClass: "btn btn-primary " }, [
                         _vm._v("Add Skill")
@@ -82835,7 +83147,7 @@ var render = function() {
                     attrs: { id: "example2" }
                   },
                   [
-                    _vm._m(1),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -82894,7 +83206,7 @@ var render = function() {
           _c("div", { staticClass: "col-md-12 " }, [
             _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-header" }, [
-                _vm._m(2),
+                _vm._m(4),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -82918,7 +83230,7 @@ var render = function() {
                     attrs: { id: "" }
                   },
                   [
-                    _vm._m(3),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -82982,6 +83294,30 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h3", { staticClass: "card-title " }, [
+      _c("strong", [_vm._v("Skill Header Section")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("SI NO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "card-title " }, [
       _c("strong", [_vm._v("Section Skills")])
     ])
   },
@@ -83031,6 +83367,337 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card card-primary" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "h3",
+                  { staticClass: "card-title" },
+                  [
+                    _vm._v("Add Skill Header "),
+                    _c("router-link", { attrs: { to: "/skills" } }, [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Go Back")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { role: "form" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.addHeader()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "desc" } }, [
+                          _vm._v("Add Description")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.desc,
+                              expression: "form.desc"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("desc") },
+                          attrs: {
+                            name: "desc",
+                            id: "desc",
+                            placeholder: "Add New Description"
+                          },
+                          domProps: { value: _vm.form.desc },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "desc", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "desc" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "status" } }, [
+                          _vm._v("Add status(active,inactive)")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.status,
+                              expression: "form.status"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("status")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "status",
+                            id: "status",
+                            placeholder: "Add New status"
+                          },
+                          domProps: { value: _vm.form.status },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "status", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "status" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card card-primary" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "h3",
+                  { staticClass: "card-title" },
+                  [
+                    _vm._v("Update Skill Header "),
+                    _c("router-link", { attrs: { to: "/skills" } }, [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Go Back")
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { role: "form" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updateHeader()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "desc" } }, [
+                          _vm._v("Update Description")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.desc,
+                              expression: "form.desc"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("desc") },
+                          attrs: { name: "desc", id: "desc" },
+                          domProps: { value: _vm.form.desc },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "desc", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "desc" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "status" } }, [
+                          _vm._v("Update status(active,inactive)")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.status,
+                              expression: "form.status"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("status")
+                          },
+                          attrs: { type: "text", name: "status", id: "status" },
+                          domProps: { value: _vm.form.status },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "status", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "status" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Update")]
+      )
     ])
   }
 ]
@@ -103177,6 +103844,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/skills/skillheader/Add.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Add.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Add.vue?vue&type=template&id=5af80a4e&scoped=true& */ "./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true&");
+/* harmony import */ var _Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Add.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5af80a4e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/skills/skillheader/Add.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Add.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Add.vue?vue&type=template&id=5af80a4e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Add.vue?vue&type=template&id=5af80a4e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_5af80a4e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/skills/skillheader/Edit.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Edit.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=a06032a6&scoped=true& */ "./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "a06032a6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/skills/skillheader/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=a06032a6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/skills/skillheader/Edit.vue?vue&type=template&id=a06032a6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_a06032a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/testimonial/Add.vue":
 /*!***********************************************************!*\
   !*** ./resources/js/components/admin/testimonial/Add.vue ***!
@@ -103459,24 +104264,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_skills_Add2__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/admin/skills/Add2 */ "./resources/js/components/admin/skills/Add2.vue");
 /* harmony import */ var _components_admin_skills_Edit__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/skills/Edit */ "./resources/js/components/admin/skills/Edit.vue");
 /* harmony import */ var _components_admin_skills_Edit2__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/skills/Edit2 */ "./resources/js/components/admin/skills/Edit2.vue");
-/* harmony import */ var _components_admin_service_List__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/service/List */ "./resources/js/components/admin/service/List.vue");
-/* harmony import */ var _components_admin_service_Add__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/service/Add */ "./resources/js/components/admin/service/Add.vue");
-/* harmony import */ var _components_admin_service_Edit__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/service/Edit */ "./resources/js/components/admin/service/Edit.vue");
-/* harmony import */ var _components_admin_testimonial_List__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/admin/testimonial/List */ "./resources/js/components/admin/testimonial/List.vue");
-/* harmony import */ var _components_admin_testimonial_Add__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/admin/testimonial/Add */ "./resources/js/components/admin/testimonial/Add.vue");
-/* harmony import */ var _components_admin_testimonial_Edit__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/admin/testimonial/Edit */ "./resources/js/components/admin/testimonial/Edit.vue");
-/* harmony import */ var _components_admin_resume_List__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/admin/resume/List */ "./resources/js/components/admin/resume/List.vue");
-/* harmony import */ var _components_admin_resume_education_Show__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/admin/resume/education/Show */ "./resources/js/components/admin/resume/education/Show.vue");
-/* harmony import */ var _components_admin_resume_education_Edit__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/admin/resume/education/Edit */ "./resources/js/components/admin/resume/education/Edit.vue");
-/* harmony import */ var _components_admin_resume_education_Add__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/admin/resume/education/Add */ "./resources/js/components/admin/resume/education/Add.vue");
-/* harmony import */ var _components_admin_resume_experience_Show__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/admin/resume/experience/Show */ "./resources/js/components/admin/resume/experience/Show.vue");
-/* harmony import */ var _components_admin_resume_experience_Add__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/admin/resume/experience/Add */ "./resources/js/components/admin/resume/experience/Add.vue");
-/* harmony import */ var _components_admin_resume_experience_Edit__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/admin/resume/experience/Edit */ "./resources/js/components/admin/resume/experience/Edit.vue");
-/* harmony import */ var _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/admin/portfolio/List */ "./resources/js/components/admin/portfolio/List.vue");
-/* harmony import */ var _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/admin/portfolio/Add */ "./resources/js/components/admin/portfolio/Add.vue");
-/* harmony import */ var _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/admin/portfolio/Edit */ "./resources/js/components/admin/portfolio/Edit.vue");
-/* harmony import */ var _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Add */ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue");
-/* harmony import */ var _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Edit */ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue");
+/* harmony import */ var _components_admin_skills_skillheader_Add__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/skills/skillheader/Add */ "./resources/js/components/admin/skills/skillheader/Add.vue");
+/* harmony import */ var _components_admin_skills_skillheader_Edit__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/skills/skillheader/Edit */ "./resources/js/components/admin/skills/skillheader/Edit.vue");
+/* harmony import */ var _components_admin_service_List__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/service/List */ "./resources/js/components/admin/service/List.vue");
+/* harmony import */ var _components_admin_service_Add__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/admin/service/Add */ "./resources/js/components/admin/service/Add.vue");
+/* harmony import */ var _components_admin_service_Edit__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/admin/service/Edit */ "./resources/js/components/admin/service/Edit.vue");
+/* harmony import */ var _components_admin_testimonial_List__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/admin/testimonial/List */ "./resources/js/components/admin/testimonial/List.vue");
+/* harmony import */ var _components_admin_testimonial_Add__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/admin/testimonial/Add */ "./resources/js/components/admin/testimonial/Add.vue");
+/* harmony import */ var _components_admin_testimonial_Edit__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/admin/testimonial/Edit */ "./resources/js/components/admin/testimonial/Edit.vue");
+/* harmony import */ var _components_admin_resume_List__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/admin/resume/List */ "./resources/js/components/admin/resume/List.vue");
+/* harmony import */ var _components_admin_resume_education_Show__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/admin/resume/education/Show */ "./resources/js/components/admin/resume/education/Show.vue");
+/* harmony import */ var _components_admin_resume_education_Edit__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/admin/resume/education/Edit */ "./resources/js/components/admin/resume/education/Edit.vue");
+/* harmony import */ var _components_admin_resume_education_Add__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/admin/resume/education/Add */ "./resources/js/components/admin/resume/education/Add.vue");
+/* harmony import */ var _components_admin_resume_experience_Show__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/admin/resume/experience/Show */ "./resources/js/components/admin/resume/experience/Show.vue");
+/* harmony import */ var _components_admin_resume_experience_Add__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/admin/resume/experience/Add */ "./resources/js/components/admin/resume/experience/Add.vue");
+/* harmony import */ var _components_admin_resume_experience_Edit__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/admin/resume/experience/Edit */ "./resources/js/components/admin/resume/experience/Edit.vue");
+/* harmony import */ var _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/admin/portfolio/List */ "./resources/js/components/admin/portfolio/List.vue");
+/* harmony import */ var _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/admin/portfolio/Add */ "./resources/js/components/admin/portfolio/Add.vue");
+/* harmony import */ var _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/admin/portfolio/Edit */ "./resources/js/components/admin/portfolio/Edit.vue");
+/* harmony import */ var _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Add */ "./resources/js/components/admin/portfolio/portfolio-body/Add.vue");
+/* harmony import */ var _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/admin/portfolio/portfolio-body/Edit */ "./resources/js/components/admin/portfolio/portfolio-body/Edit.vue");
  //Hero section
 
 
@@ -103502,6 +104309,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+ //skill header
 
 
  //services
@@ -103601,66 +104411,73 @@ var routes = [{
 }, {
   path: '/edit-skill2/:skill2ID',
   component: _components_admin_skills_Edit2__WEBPACK_IMPORTED_MODULE_21__["default"]
+}, //skill Header Section
+{
+  path: '/add-skillheader',
+  component: _components_admin_skills_skillheader_Add__WEBPACK_IMPORTED_MODULE_22__["default"]
+}, {
+  path: '/edit-skillheader/:skillheaderID',
+  component: _components_admin_skills_skillheader_Edit__WEBPACK_IMPORTED_MODULE_23__["default"]
 }, //services
 {
   path: '/Services',
-  component: _components_admin_service_List__WEBPACK_IMPORTED_MODULE_22__["default"]
+  component: _components_admin_service_List__WEBPACK_IMPORTED_MODULE_24__["default"]
 }, {
   path: '/add-Service',
-  component: _components_admin_service_Add__WEBPACK_IMPORTED_MODULE_23__["default"]
+  component: _components_admin_service_Add__WEBPACK_IMPORTED_MODULE_25__["default"]
 }, {
   path: '/edit-service/:serviceID',
-  component: _components_admin_service_Edit__WEBPACK_IMPORTED_MODULE_24__["default"]
+  component: _components_admin_service_Edit__WEBPACK_IMPORTED_MODULE_26__["default"]
 }, //testimonials
 {
   path: '/testimonials',
-  component: _components_admin_testimonial_List__WEBPACK_IMPORTED_MODULE_25__["default"]
+  component: _components_admin_testimonial_List__WEBPACK_IMPORTED_MODULE_27__["default"]
 }, {
   path: '/add-testimonial',
-  component: _components_admin_testimonial_Add__WEBPACK_IMPORTED_MODULE_26__["default"]
+  component: _components_admin_testimonial_Add__WEBPACK_IMPORTED_MODULE_28__["default"]
 }, {
   path: '/edit-testimonial/:testID',
-  component: _components_admin_testimonial_Edit__WEBPACK_IMPORTED_MODULE_27__["default"]
+  component: _components_admin_testimonial_Edit__WEBPACK_IMPORTED_MODULE_29__["default"]
 }, //resumes--education
 {
   path: '/resumes',
-  component: _components_admin_resume_List__WEBPACK_IMPORTED_MODULE_28__["default"]
+  component: _components_admin_resume_List__WEBPACK_IMPORTED_MODULE_30__["default"]
 }, {
   path: '/resume/education/show/:resumeID',
-  component: _components_admin_resume_education_Show__WEBPACK_IMPORTED_MODULE_29__["default"]
+  component: _components_admin_resume_education_Show__WEBPACK_IMPORTED_MODULE_31__["default"]
 }, {
   path: '/resume/education/edit/:educationID',
-  component: _components_admin_resume_education_Edit__WEBPACK_IMPORTED_MODULE_30__["default"]
+  component: _components_admin_resume_education_Edit__WEBPACK_IMPORTED_MODULE_32__["default"]
 }, {
   path: '/add-education',
-  component: _components_admin_resume_education_Add__WEBPACK_IMPORTED_MODULE_31__["default"]
+  component: _components_admin_resume_education_Add__WEBPACK_IMPORTED_MODULE_33__["default"]
 }, //resume-experience
 {
   path: '/resume/experience/show/:experience_showID',
-  component: _components_admin_resume_experience_Show__WEBPACK_IMPORTED_MODULE_32__["default"]
+  component: _components_admin_resume_experience_Show__WEBPACK_IMPORTED_MODULE_34__["default"]
 }, {
   path: '/resume/experience/edit/:experienceID',
-  component: _components_admin_resume_experience_Edit__WEBPACK_IMPORTED_MODULE_34__["default"]
+  component: _components_admin_resume_experience_Edit__WEBPACK_IMPORTED_MODULE_36__["default"]
 }, {
   path: '/add-experience',
-  component: _components_admin_resume_experience_Add__WEBPACK_IMPORTED_MODULE_33__["default"]
+  component: _components_admin_resume_experience_Add__WEBPACK_IMPORTED_MODULE_35__["default"]
 }, //portfolio
 {
   path: '/portfolio',
-  component: _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_35__["default"]
+  component: _components_admin_portfolio_List__WEBPACK_IMPORTED_MODULE_37__["default"]
 }, {
   path: '/add-category',
-  component: _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_36__["default"]
+  component: _components_admin_portfolio_Add__WEBPACK_IMPORTED_MODULE_38__["default"]
 }, {
   path: '/edit/category/:categoryID',
-  component: _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_37__["default"]
+  component: _components_admin_portfolio_Edit__WEBPACK_IMPORTED_MODULE_39__["default"]
 }, //portfolio body
 {
   path: '/add-portfolio',
-  component: _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_38__["default"]
+  component: _components_admin_portfolio_portfolio_body_Add__WEBPACK_IMPORTED_MODULE_40__["default"]
 }, {
   path: '/edit/portfolio/:portfolioID',
-  component: _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_39__["default"]
+  component: _components_admin_portfolio_portfolio_body_Edit__WEBPACK_IMPORTED_MODULE_41__["default"]
 }];
 
 /***/ }),
@@ -103688,7 +104505,8 @@ __webpack_require__.r(__webpack_exports__);
     categories: [],
     portfolio: [],
     background: [],
-    factheader: []
+    factheader: [],
+    skillheader: []
   },
   getters: {
     allHeroes: function allHeroes(state) {
@@ -103729,6 +104547,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allfactHeader: function allfactHeader(state) {
       return state.factheader;
+    },
+    AllSkillheader: function AllSkillheader(state) {
+      return state.skillheader;
     }
   },
   actions: {
@@ -103796,6 +104617,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/fact-header').then(function (response) {
         context.commit('headerFact', response.data.factheader);
       });
+    },
+    getSkillheader: function getSkillheader(context) {
+      axios.get('/skill-header').then(function (response) {
+        context.commit('skillHeaderList', response.data.skillheader);
+      });
     }
   },
   mutations: {
@@ -103837,6 +104663,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     headerFact: function headerFact(state, data) {
       return state.factheader = data;
+    },
+    skillHeaderList: function skillHeaderList(state, data) {
+      return state.skillheader = data;
     }
   }
 });

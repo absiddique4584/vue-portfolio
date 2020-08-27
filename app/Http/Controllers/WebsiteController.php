@@ -14,6 +14,7 @@ use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Skill;
 use App\Models\Skill2;
+use App\Models\Skillheader;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -36,10 +37,11 @@ class WebsiteController extends Controller
         $portfolio = Portfolio::with('category')->select('id','category_id','title','image')->where('status','active')->get();
         $background = Background::select('id','image')->where('status','active')->first();
         $factheader = Factheader::where('status','active')->get();
-        //return $factheader;
+        $skillheader = Skillheader::where('status','active')->get();
+        //return $skillheader;
         return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials',
              'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio','background',
-             'factheader'
+             'factheader','skillheader'
         ));
     }
 }

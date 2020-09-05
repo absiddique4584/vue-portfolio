@@ -57,6 +57,9 @@ import resumeEducationAdd from './components/admin/resume/education/Add'
 import resumeExperienceShow from './components/admin/resume/experience/Show'
 import resumeAddexperience from './components/admin/resume/experience/Add'
 import resumeExperienceEdit from './components/admin/resume/experience/Edit'
+//portfolio head
+import portfolioHead from './components/admin/portfolio/portfolio-head/add'
+import portfolioHeadedit from './components/admin/portfolio/portfolio-head/edit'
 //portfolio
 import portfolioList from './components/admin/portfolio/List'
 import categoryAdd from './components/admin/portfolio/Add'
@@ -259,6 +262,16 @@ export const routes = [
         component: resumeAddexperience
     },
 
+
+    //portfolio head
+    {
+        path: '/add-portfolio/head',
+        component: portfolioHead
+    },
+    {
+        path: '/edit/portfoliohead/:portfolioheadID',
+        component: portfolioHeadedit
+    },
 
     //portfolio
     {

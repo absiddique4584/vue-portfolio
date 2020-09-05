@@ -108,6 +108,12 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/resume/experience/edit/{id}','ExperienceController@edit_experience');
     Route::post('/update-experience/{id}','ExperienceController@update_experience');
 
+    //portfolio Head section
+    Route::get('/portfolio-head','PortfolioheadController@all_portfolio_head');
+    Route::post('/portfolio-head/add','PortfolioheadController@add_portfolio_head');
+    Route::get('/delete-portfoliohead/{id}','PortfolioheadController@delete_portfolio_head');
+    Route::get('/edit-portfoliohead/{id}','PortfolioheadController@edit_portfolio_head');
+    Route::post('/update-portfoliohead/{id}','PortfolioheadController@update_portfolio_head');
     //portfolio section (Category)
     Route::get('/portfolio/category','CategoryController@all_category');
     Route::post('/add-category','CategoryController@add_category');

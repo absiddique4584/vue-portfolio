@@ -15,6 +15,7 @@ export default {
         factheader:[],
         skillheader:[],
         resumehead:[],
+        portfoliohead:[],
     },
     getters:{
         allHeroes(state){
@@ -61,6 +62,9 @@ export default {
         },
         AllSkillheader(state){
             return state.skillheader
+        },
+        getPortfoliohead(state){
+            return state.portfoliohead
         }
 
     },
@@ -156,6 +160,12 @@ export default {
                 .then((response)=>{
                     context.commit('skillHeaderList',response.data.skillheader)
                 })
+        },
+        getportfoliohead(context){
+            axios.get('/portfolio-head')
+                .then((response)=>{
+                    context.commit('getPortfoliohead',response.data.portfoliohead)
+                })
         }
 
     },
@@ -204,6 +214,9 @@ export default {
         },
         skillHeaderList(state,data){
             return state.skillheader = data
+        },
+        getPortfoliohead(state,data){
+            return state.portfoliohead = data
         }
 
     }

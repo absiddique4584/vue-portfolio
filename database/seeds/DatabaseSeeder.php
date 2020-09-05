@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
              FactheaderTableSeeder::class,
              SkillheaderTableSeeder::class,
              ResumeheadTableSeeder::class,
+             PortfolioheadTableSeeder::class,
          ]);
     }
 }

@@ -3,6 +3,43 @@
         <section class="content" >
             <div class="container-fluid">
                 <div class="row justify-content-around">
+
+                    <div class="col-md-12 ">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title "><strong>Portfolio Head</strong></h4>
+                                <div class="card-tools">
+                                    <router-link to="/add-portfolio/head"><button class="btn btn-primary ">Add Portfolio(Head)</button></router-link>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SI NO</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(portfoliohead,index) in allPortfoliohead" :key="portfoliohead.id">
+                                            <td>{{index+1}}</td>
+                                            <td>{{portfoliohead.desc}}</td>
+                                            <td><button class="btn btn-success">{{portfoliohead.status}}</button></td>
+                                            <td>
+                                                <router-link :to="`/edit/portfoliohead/${portfoliohead.id}`"><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a  @click.prevent="deletePortfoliohead(portfoliohead.id)"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
@@ -94,6 +131,7 @@ name: "List",
     mounted() {
           this.$store.dispatch('getallCategories')
           this.$store.dispatch('getallPortfolio')
+          this.$store.dispatch('getportfoliohead')
        },
     computed:{
        allData(){
@@ -101,6 +139,9 @@ name: "List",
        },
        allPortfolio(){
            return this.$store.getters.getPortfolio
+       },
+       allPortfoliohead(){
+           return this.$store.getters.getPortfoliohead
        }
     },
     methods:{
@@ -128,6 +169,24 @@ name: "List",
                 axios.get('/delete-portfolio/'+id)
                     .then(()=>{
                         this.$store.dispatch("getallPortfolio")
+                        toast.fire({
+                            icon: 'success',
+                            title: 'Yah! A Portfoliohead has been successfully Deleted'
+                        })
+                    }).catch(()=>{
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Ooh!something Wrong !'
+                    })
+                })
+            )
+        },
+        deletePortfoliohead(id){
+            alert(
+                'Are you sure? Want To Delete It!',
+                axios.get('/delete-portfoliohead/'+id)
+                    .then(()=>{
+                        this.$store.dispatch("getportfoliohead")
                         toast.fire({
                             icon: 'success',
                             title: 'Yah! A Portfolio has been successfully Deleted'

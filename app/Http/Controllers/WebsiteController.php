@@ -11,6 +11,7 @@ use App\Models\Fact;
 use App\Models\Factheader;
 use App\Models\Hero;
 use App\Models\Portfolio;
+use App\Models\Portfoliohead;
 use App\Models\Resumehead;
 use App\Models\Service;
 use App\Models\Skill;
@@ -40,10 +41,11 @@ class WebsiteController extends Controller
         $factheader = Factheader::where('status','active')->get();
         $skillheader = Skillheader::where('status','active')->get();
         $resumeHead = Resumehead::where('status','active')->get();
+        $portfoliohead = Portfoliohead::where('status','active')->get();
         //return $skillheader;
         return view('website.index',compact('heroes','facts','skills','skills2','services','testimonials',
              'socials','abouts','hero_resume','about_resume','educations','experiences','categories','portfolio','background',
-             'factheader','skillheader','resumeHead'
+             'factheader','skillheader','resumeHead','portfoliohead'
         ));
     }
 }

@@ -14,11 +14,7 @@
                             <!-- form start -->
                             <form >
 
-                                <div class="form-group" style="margin-left: 20px;">
-                                    <input readonly  name="image" type="text" :class="{ 'is-invalid': form.errors.has('image') }" Placeholder="Image">
-                                    <img :src="updateImage()" alt="" width="80" height="80">
-                                    <has-error :form="form" field="image"></has-error>
-                                </div>
+
 
                                 <div class="card-body">
                                     <div class="form-group">
@@ -102,26 +98,33 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="h_desc">Header Description</label>
-                                        <input readonly type="text" v-model="form.h_desc" name="h_desc" class="form-control" id="h_desc"
-                                        :class="{ 'is-invalid': form.errors.has('h_desc') }">
+                                        <label >Header Description</label>
+                                        <textarea readonly v-model="form.h_desc" name="h_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('h_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="h_desc"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="m_desc">Middle Description</label>
-                                        <input readonly type="text" v-model="form.m_desc" name="m_desc" class="form-control" id="m_desc"
-                                        :class="{ 'is-invalid': form.errors.has('m_desc') }">
+                                        <label >Middle Description</label>
+                                        <textarea readonly v-model="form.m_desc" name="m_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('m_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="m_desc"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="l_desc">Footer Description</label>
-                                        <input readonly type="text" v-model="form.l_desc" name="l_desc" class="form-control" id="l_desc"
-                                        :class="{ 'is-invalid': form.errors.has('l_desc') }">
+                                        <label >Footer Description</label>
+                                        <textarea readonly v-model="form.l_desc" name="l_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('l_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="l_desc"></has-error>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group" style="margin-left: 20px;">
+                                        <input @change = "changePhoto($event)" name="image" type="file" readonly :class="{ 'is-invalid': form.errors.has('image') }">
+                                        <img :src="updateImage()" alt="" width="80" height="80">
+                                        <has-error :form="form" field="image"></has-error>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -168,16 +171,35 @@ export default {
 
 
     methods:{
+        changePhoto(event){
+            let file = event.target.files[0];
 
+            if(file.size>1048576){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href>This File Is Too Much Big</a>'
+                })
+            }else{
+                let reader = new FileReader();
+                reader.onload = event => {
+                    this.form.image = event.target.result
+                    //console.log(event.target.result)
+                };
+                reader.readAsDataURL(file);
+            }
+
+        },
         updateImage(){
             let img = this.form.image;
             if(img.length>100){
                 return  this.form.image
             }else{
-                return `uploads/about/${this.form.image}`
+                return `/uploads/about/${this.form.image}`
             }
 
-        }
+        },
     }
 }
 </script>

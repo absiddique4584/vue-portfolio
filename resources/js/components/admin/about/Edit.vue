@@ -14,13 +14,6 @@
                             <!-- form start -->
                             <form role="form" @submit.prevent="updateAbout()" enctype="multipart/form-data">
 
-
-                                <div class="form-group" style="margin-left: 20px;">
-                                    <input @change = "changePhoto($event)" name="image" type="file" :class="{ 'is-invalid': form.errors.has('image') }">
-                                    <img :src="updateImage()" alt="" width="80" height="80">
-                                    <has-error :form="form" field="image"></has-error>
-                                </div>
-
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="title">Title</label>
@@ -103,28 +96,38 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="h_desc">Header Description</label>
-                                        <input  type="text" v-model="form.h_desc" name="h_desc" class="form-control" id="h_desc"
-                                                :class="{ 'is-invalid': form.errors.has('h_desc') }">
+                                        <label >Header Description</label>
+                                        <textarea  v-model="form.h_desc" name="h_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('h_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="h_desc"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="m_desc">Middle Description</label>
-                                        <input  type="text" v-model="form.m_desc" name="m_desc" class="form-control" id="m_desc"
-                                                :class="{ 'is-invalid': form.errors.has('m_desc') }">
+                                        <label >Middle Description</label>
+                                        <textarea  v-model="form.m_desc" name="m_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('m_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="m_desc"></has-error>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="l_desc">Footer Description</label>
-                                        <input  type="text" v-model="form.l_desc" name="l_desc" class="form-control" id="l_desc"
-                                                :class="{ 'is-invalid': form.errors.has('l_desc') }">
+                                        <label >Footer Description</label>
+                                        <textarea  v-model="form.l_desc" name="l_desc" class="form-control" :class="{ 'is-invalid': form.errors.has('l_desc') }">
+                                        </textarea>
                                         <has-error :form="form" field="l_desc"></has-error>
                                     </div>
                                 </div>
+
+                                <div class="card-body">
+                                    <div class="form-group" style="margin-left: 20px;">
+                                        <input @change = "changePhoto($event)" name="image" type="file"  :class="{ 'is-invalid': form.errors.has('image') }">
+                                        <img :src="updateImage()" alt="" width="80" height="80">
+                                        <has-error :form="form" field="image"></has-error>
+                                    </div>
+                                </div>
+
+
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">

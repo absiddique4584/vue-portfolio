@@ -2,7 +2,46 @@
     <div>
         <section class="content" >
             <div class="container-fluid">
+
                 <div class="row justify-content-around">
+                    <div class="col-md-12 ">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title "><strong> Resume(Head)</strong></h3>
+                                <div class="card-tools">
+                                    <router-link to="/resume-head/add"><button class="btn btn-primary ">Add Resume(Head)</button></router-link>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table  class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>SI NO</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(resume,index) in resumeHead" :key="resume.id">
+                                            <td>{{index+1}}</td>
+                                            <td>{{resume.desc}}</td>
+                                            <td><button class="btn btn-success">{{resume.status}}</button></td>
+                                            <td>
+                                                <router-link :to="`/resume/head/edit/${resume.id}`"  ><i class="fas fa-pencil-alt"></i></router-link>
+                                                <a @click.prevent="deleteResume(resume.id)" ><i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div><div class="row justify-content-around">
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
@@ -51,7 +90,7 @@
 
 
 
-<div class="row justify-content-around">
+                <div class="row justify-content-around">
                     <div class="col-md-12 ">
                         <div class="card">
                             <div class="card-header">
@@ -113,16 +152,20 @@
 export default {
 name: "List",
     mounted(){
+        this.$store.dispatch('getallResumehead')
         this.$store.dispatch('getallEducations')
         this.$store.dispatch('getallExperiences')
     },
     computed:{
+        resumeHead(){
+            return this.$store.getters.AllResumehead
+        },
         allEducations(){
             return this.$store.getters.AllEducation
         },
         allExperiences(){
             return this.$store.getters.AllExperience
-        },
+        }
 
     },
     methods:{
@@ -144,6 +187,17 @@ name: "List",
                     toast.fire({
                         icon: 'success',
                         title: 'Yah! A Experience has been successfully Deleted'
+                    })
+                })
+
+        },
+        deleteResume(id){
+            axios.get('/resumehead-delete/'+id)
+                .then(()=>{
+                    this.$store.dispatch("getallResumehead")
+                    toast.fire({
+                        icon: 'success',
+                        title: 'Yah! A Resume has been successfully Deleted'
                     })
                 })
 

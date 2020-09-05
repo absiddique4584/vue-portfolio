@@ -45,6 +45,9 @@ import UpdateServices from './components/admin/service/Edit'
 import testimonialList from './components/admin/testimonial/List'
 import testimonialAdd from './components/admin/testimonial/Add'
 import testimonialedit from './components/admin/testimonial/Edit'
+//resume-Head
+import resumeHeadadd from './components/admin/resume/resume-head/Add'
+import resumeHeadedit from './components/admin/resume/resume-head/edit'
 //resume-education
 import resumeList from './components/admin/resume/List'
 import resumeEducationShow from './components/admin/resume/education/Show'
@@ -212,6 +215,16 @@ export const routes = [
         path: '/edit-testimonial/:testID',
         component: testimonialedit
     },
+    //resumes--head section
+    {
+        path:'/resume-head/add',
+        component: resumeHeadadd
+    },
+    {
+        path:'/resume/head/edit/:resumeheadId',
+        component: resumeHeadedit
+    },
+
     //resumes--education
     {
         path:'/resumes',

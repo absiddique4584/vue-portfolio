@@ -21,13 +21,13 @@
                                     <thead>
                                         <tr>
                                             <th>SI</th>
-                                            <th>image</th>
-                                            <th>age</th>
-                                            <th>site</th>
-                                            <th>email</th>
-                                            <th>phone</th>
-                                            <th>address</th>
-                                            <th>city</th>
+                                            <th>Image</th>
+                                            <th>Age</th>
+                                            <th>Site</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>City</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

@@ -13,7 +13,8 @@ export default {
         portfolio:[],
         background:[],
         factheader:[],
-        skillheader:[]
+        skillheader:[],
+        resumehead:[],
     },
     getters:{
         allHeroes(state){
@@ -39,6 +40,9 @@ export default {
         },
         AllEducation(state){
             return state.educations
+        },
+        AllResumehead(state){
+            return state.resumehead
         },
         AllExperience(state){
             return state.experiences
@@ -101,6 +105,12 @@ export default {
             axios.get('/all-about')
                 .then((response)=>{
                     context.commit('aboutList',response.data.abouts)
+                })
+        },
+        getallResumehead(context){
+            axios.get('/resume-head')
+                .then((response)=>{
+                    context.commit('resumeHead',response.data.resumeHead)
                 })
         },
         getallEducations(context){
@@ -170,6 +180,9 @@ export default {
         },
         aboutList(state,data){
             return state.abouts = data
+        },
+        resumeHead(state,data){
+            return state.resumehead = data
         },
         educationtList(state,data){
             return state.educations = data

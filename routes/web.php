@@ -85,6 +85,13 @@ Route::group(['middleware' => ['auth']],  function (){
     Route::get('/edit-testimonial/{id}','TestimonialController@edit_testimonial');
     Route::post('/update-testimonial/{id}','TestimonialController@update_testimonial');
 
+    //resume head start
+    Route::get('/resume-head','ResumeHeadController@all_resume_head');
+    Route::get('/edit-resumeHeader/{id}','ResumeHeadController@edit_resume_head');
+    Route::post('/update-resumehead/{id}','ResumeHeadController@update_resume_head');
+    Route::post('/resume-head/add','ResumeHeadController@add_resume_head');
+    Route::get('/resumehead-delete/{id}','ResumeHeadController@delete_resume_head');
+    //resume head end
 
     Route::get('/all-education','EducationController@all_education');
     Route::get('/education-delete/{id}','EducationController@delete_education');

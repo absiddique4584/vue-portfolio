@@ -108,6 +108,25 @@
                         </li>
 
                         <li class="nav-item">
+                            <router-link to="/resumes" class="nav-link">
+                                <i class="fas fa-poll"></i>
+                                <p class="dashboard">
+                                    Resume
+                                </p>
+                            </router-link>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <router-link to="/portfolio" class="nav-link">
+                                <i class="fas fa-anchor"></i>
+                                <p class="dashboard">
+                                    Portfolio
+                                </p>
+                            </router-link>
+                        </li>
+
+                        <li class="nav-item">
                             <router-link to="/Services" class="nav-link">
                                 <i class="fab fa-servicestack"></i>
                                 <p class="dashboard">
@@ -125,23 +144,8 @@
                             </router-link>
                         </li>
 
-                        <li class="nav-item">
-                            <router-link to="/resumes" class="nav-link">
-                                <i class="fas fa-poll"></i>
-                                <p class="dashboard">
-                                    Resume
-                                </p>
-                            </router-link>
-                        </li>
 
-                        <li class="nav-item">
-                            <router-link to="/portfolio" class="nav-link">
-                                <i class="fas fa-anchor"></i>
-                                <p class="dashboard">
-                                   Portfolio
-                                </p>
-                            </router-link>
-                        </li>
+
 
                         <li class="nav-item">
                             <router-link to="/post-list" class="nav-link">
